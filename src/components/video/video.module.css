@@ -1,0 +1,39 @@
+.main{
+    display: flex;
+    gap:20px;
+}
+.video_tag{
+    padding: 10px;
+}
+.white{
+    color: white;
+    background-color: black;
+    height: 100vh;
+}
+.content{
+    justify-content: space-between;
+    display: flex;
+    height: 90vh;
+    /* width: 80vw; */
+    overflow: scroll;
+    scrollbar-width: none;
+ }
+ .sidebar{
+    span>span>img:hover{
+        transform: scale(1);
+
+    }
+    /* position: absolute; */
+    margin-left: 10px;
+    right: 10px;
+    overflow: scroll;
+    scrollbar-width: none;
+    /* background-color: aqua; */
+    >span{
+        display: flex;
+        >des{
+            padding-top: 20px;
+            padding-left: 5px;
+        }
+    }
+ }

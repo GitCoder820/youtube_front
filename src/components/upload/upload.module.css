@@ -1,0 +1,94 @@
+.wrapper{
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+    outline: none;
+    border:none;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: background-color 1s ease-in-out 0s;
+    transition: transform 0.5s ease-in-out 0s;
+}
+
+.error{
+    color:red
+
+}
+.wrapper:focus{
+    background-color: rgb(231, 234, 234);
+    box-shadow: 0px 0px 0px 1px red;
+}
+.wrapper:hover{
+    transform: scale(1.05);
+    
+}
+.file_upload{
+    width: 90%;
+    background: #4CAF50;
+    height: 30px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: background-color 1s ease-in-out 0s;
+    transition: transform 0.5s ease-in-out 0s;
+}
+.file_upload:hover{
+    transform: scale(1.05);
+}
+.file_upload::file-selector-button {
+  /* margin-right: 10px; */
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit{
+    border: none;
+    outline: none;
+    height: 40px;
+    border-radius: 10px;
+    padding: 5px;
+    transition: all 0.5s ease-in-out 0s;
+    background-color: aqua;
+}
+.submit:hover{
+    transform: scale(1.05);
+}
+.form*{
+    background-color: aquamarine;
+}
+.form{
+    background-color: aquamarine;
+    >h2{
+        background-color: aquamarine;
+    }
+    >div{
+        background-color: aquamarine;
+        >div{
+        background-color: aquamarine;
+    }
+    }
+    display: grid;
+    width: 20%;
+    gap: 20px;
+    padding: 10px;
+    color: aliceblue;
+    /* background-color: rgba(0, 255, 255, 0.207); */
+    backdrop-filter: blur(100px);
+    border-radius: 20px;
+}
+.center{
+    color: rgb(254, 254, 254);
+   background-image: url("https://imgs.search.brave.com/8abf0d4MDbTjXscWgvpXqF9Wy2fpj4rd_fVcGAPgdFs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTc3/Nzc3MzM4Ny9waG90/by9tb3VudGFpbnMt/aW4tdGhlLW1vcm5p/bmctb24tYS1mb2dn/eS1kYXkuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPTlSeFEt/TC00Y3Y4SzZOY09Y/ellDaHA5bmI2Qlk0/ak5TU2tDNk1sQkJH/TFU9");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 5px;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+}
