@@ -19,7 +19,7 @@ export default function Upload() {
             formData.append("Thumbnail", data.Thumbnail[0]);
             formData.append("Video", data.Video[0]);
             console.log(data.Thumbnail[0]);
-            let res = await fetch("https://youtube-backend-gilt.vercel.app/api/list/upload/files", {
+            let res = await fetch("/api/list/upload/files", {
                 method: "POST",
                 body: formData,
                 credentials: "include"
