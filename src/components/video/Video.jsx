@@ -36,7 +36,7 @@ export default function Video() {
         <div className={styles.content}>
           <div className={styles.video_tag}>
             <video
-              src={`/api/download/${encodeURIComponent(obj.Video)}`}
+              src={`https://youtube-backend-gilt.vercel.app/api/download/${encodeURIComponent(obj.Video)}`}
               muted:false
               controls
               autoPlay

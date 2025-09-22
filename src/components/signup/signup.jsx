@@ -6,7 +6,7 @@ export default function Signup() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const onSubmit = async (data) => {
         console.log(data);
-        let r = await fetch("/api/register/signup", { method: 'POST', headers: { "content-Type": "application/json" }, body: JSON.stringify(data) })
+        let r = await fetch("https://youtube-backend-gilt.vercel.app/api/register/signup", { method: 'POST', headers: { "content-Type": "application/json" }, body: JSON.stringify(data) })
         if (r.redirected) {
             window.location.href = r.url;
         }

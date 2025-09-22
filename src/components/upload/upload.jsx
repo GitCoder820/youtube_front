@@ -9,7 +9,7 @@ export default function Upload() {
         const formData = new FormData();
         formData.append("Title", data.Title);
         
-        let check = await fetch("/api/list/check", {
+        let check = await fetch("https://youtube-backend-gilt.vercel.app/api/list/check", {
             method: "POST",
             body: formData,
             credentials: "include"
