@@ -36,7 +36,7 @@ export default function Video() {
         <div className={styles.content}>
           <div className={styles.video_tag}>
             <video
-              src={`https://youtube-backend-beta.vercel.app/api/download/${encodeURIComponent(obj.Video)}`}
+              src={`https://youtube-backend-8o8a.onrender.com/api/download/${encodeURIComponent(obj.Video)}`}
               muted:false
               controls
               autoPlay
