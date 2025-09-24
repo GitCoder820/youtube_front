@@ -7,7 +7,7 @@ export default function Signup() {
     const onSubmit = async (data) => {
         console.log(data);
        let r = await fetch(
-"https://youtube-backend-beta.vercel.app/api/register/signup",
+"https://youtube-backend-8o8a.onrender.com/api/register/signup",
   {
     method: 'POST',
     headers: { "Content-Type": "application/json" }, // note capitalization
