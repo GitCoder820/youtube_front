@@ -8,7 +8,7 @@ function Navbar() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (data) => {
-        const r = await fetch("https://youtube-backend-beta.vercel.app/api/search", {
+        const r = await fetch("https://youtube-backend-8o8a.onrender.com/api/search", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
