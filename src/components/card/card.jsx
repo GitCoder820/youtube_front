@@ -12,7 +12,7 @@ export default function Card(address) {
         setView(address.address.views + 1);
         console.log("video clicked")
         setObj(address.address)
-        let res = fetch("https://youtube-backend-beta.vercel.app/api/list/ins", {
+        let res = fetch("https://youtube-backend-8o8a.onrender.com/api/list/ins", {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(getObj())
