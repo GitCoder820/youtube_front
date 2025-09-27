@@ -37,16 +37,16 @@ export default function Upload() {
                 const result = await res.text();
                 console.log(result);
                 setUser(result);
+                setalert("block")
                 const stoper = () => {
-
                     document.getElementById('submit').outerHTML = `<input id="submit" class="${styles.submit}" type="Submit" />`
                 }
                 stoper();
             }
             else {
                 setUser(check);
+                setalert("block")
                 const stoper = () => {
-
                     document.getElementById('submit').outerHTML = `<input id="submit" class="${styles.submit}" type="Submit" />`
                 }
                 stoper();

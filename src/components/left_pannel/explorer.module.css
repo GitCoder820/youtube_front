@@ -21,7 +21,7 @@
             height: 50px;
             width: 100%;
             display: inline-block;
-            >div:hover {
+            >div:click {
                 background-color: rgb(188, 183, 183);
                 border-radius: 10px;
                 >img{
