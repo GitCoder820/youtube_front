@@ -3,6 +3,7 @@
     display: flex;
     gap: 20px;
 }
+
 .main {
     display: flex;
     gap: 20px;
@@ -10,7 +11,7 @@
 
 .video_tag {
     padding: 10px;
-        width: 50vw;
+    width: 50vw;
 }
 
 .video {
@@ -63,8 +64,14 @@
     .video {
         width: 80vw
     }
-    .sidebar {
+
+    /* .sidebar {
         display: none;
+    } */
+
+    .content {
+        display: grid;
+        word-wrap: break-word;
     }
 
     .explorer {
