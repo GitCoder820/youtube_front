@@ -37,9 +37,19 @@ export default function Upload() {
                 const result = await res.text();
                 console.log(result);
                 setUser(result);
+                const stoper = () => {
+
+                    document.getElementById('submit').outerHTML = `<input id="submit" class="${styles.submit}" type="Submit" />`
+                }
+                stoper();
             }
             else {
                 setUser(check);
+                const stoper = () => {
+
+                    document.getElementById('submit').outerHTML = `<input id="submit" class="${styles.submit}" type="Submit" />`
+                }
+                stoper();
             }
         }
         catch {
@@ -76,7 +86,7 @@ export default function Upload() {
         }
         let i = 0;
         let interval = setInterval(() => {
-            if (document.getElementById('submit').tagName!='DIV') {
+            if (document.getElementById('submit').tagName != 'DIV') {
                 clearInterval(interval);
                 return;
             }
@@ -99,7 +109,7 @@ export default function Upload() {
                 // stoper();
             })}>
                 <h2 className={styles.login}>Upload Page </h2>
-                <h4 style={{ color: "red",display:alert_style}}>{user}</h4>
+                <h4 style={{ color: "red", display: alert_style }}>{user}</h4>
                 <div>
                     <input className={styles.wrapper} type="text" placeholder="Enter your Video Title"  {...register("Title", { required: "This field is required", minLength: { value: 3, message: "enter your correct Name" } })} />
                     {errors.Title && <div className={styles.error}>{errors.Title.message}</div>}
@@ -110,7 +120,7 @@ export default function Upload() {
                     {errors.Thumbnail && <div className={styles.error}>{errors.Thumbnail.message}</div>}
                 </div>
                 <div className={styles.files_data}>
-                    
+
                     <label className={styles.label} htmlFor="video">Select Video</label>
                     <input id="video" className={styles.file_upload} type="file" accept="video/*" name="Video" placeholder="Enter your Video" {...register("Video", { required: "This field is required", onChange: (e) => { handleFileChange(e); } })} />
                     {errors.Video && <div className={styles.error}>{errors.Video.message}
@@ -118,7 +128,7 @@ export default function Upload() {
                     </div>}
                 </div>
                 <input id="submit" className={styles.submit} type="Submit" />
-                <input className={styles.submit} type="Reset" /> 
+                <input className={styles.submit} type="Reset" />
             </form>
         </div></>
     )
