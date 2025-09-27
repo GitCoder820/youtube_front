@@ -28,7 +28,7 @@
         position: absolute;
         bottom: 0px;
         display: inline-block;
-        width: calc(100vw);
+        width: calc(100vw - 30px);
         background-color: black;
         display: flex;
         height: 35px;
