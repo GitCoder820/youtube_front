@@ -35,12 +35,11 @@ export default function Video() {
       <div className={styles.main}><Explorer />
         <div className={styles.content}>
           <div className={styles.video_tag}>
-            <video
+            <video className={styles.video}
               src={`https://youtube-backend-8o8a.onrender.com/api/download/${encodeURIComponent(obj.Video)}`}
               muted:false
               controls
               autoPlay
-              width="860"
               // height="800"
             />
             <br />

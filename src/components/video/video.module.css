@@ -5,6 +5,9 @@
 .video_tag{
     padding: 10px;
 }
+.video{
+    width:60vw
+}
 .white{
     color: white;
     background-color: black;
