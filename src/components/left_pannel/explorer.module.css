@@ -1,7 +1,31 @@
-.icons{
+.activeLink{
+    background-color: rgb(188, 183, 183);
+    border-radius: 10px;
+>div {
+    background-color: rgb(188, 183, 183);
+    border-radius: 10px;
+
+    >img {
+        filter: invert(100%);
+    }
+}
+}
+
+.Red>div {
+    background-color: rgb(188, 183, 183);
+    border-radius: 10px;
+
+    >img {
+        filter: invert(100%);
+    }
+
+}
+
+.icons {
     width: 32px;
     height: 32px;
 }
+
 .ul {
     margin-left: 5px;
     background-color: rgb(0, 0, 0);
@@ -13,6 +37,7 @@
     /* gap:30px; */
     padding: 0%;
     justify-content: space-between;
+
     >li {
 
         /* background-color: rgb(147, 138, 138); */
@@ -21,17 +46,19 @@
             height: 50px;
             width: 100%;
             display: inline-block;
-            >div:click {
+
+            /* >div:hover {
                 background-color: rgb(188, 183, 183);
                 border-radius: 10px;
-                >img{
+
+                >img {
                     filter: invert(100%);
                 }
-                
-            }
+
+            } */
 
             >div {
-                gap:5px;
+                gap: 5px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -47,10 +74,11 @@
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
-  .ul{
-    width:10%
-  }
-  .hidden{
-    display: none;
-  }
+    .ul {
+        width: 10%
+    }
+
+    .hidden {
+        display: none;
+    }
 }
