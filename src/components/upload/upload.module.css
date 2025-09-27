@@ -1,94 +1,72 @@
-.wrapper{
-    background-color: rgb(255, 255, 255);
-    width: 90%;
-    outline: none;
-    border:none;
-    height: 30px;
-    border-radius: 10px;
-    padding: 5px;
-    transition: background-color 1s ease-in-out 0s;
-    transition: transform 0.5s ease-in-out 0s;
+.explorer{
+    position: absolute;
+    display: flex;
+    gap:20px;
 }
-
+.center{
+    height: calc(100vh - 60px);
+    width: 100vw;
+    background-color: black;
+    align-content: center;
+    justify-items: center;
+}
 .error{
-    color:red
-
+    color:white
 }
-.wrapper:focus{
-    background-color: rgb(231, 234, 234);
-    box-shadow: 0px 0px 0px 1px red;
+.form{
+    gap:15px;
+    border-radius: 5px;
+    display: grid;
+    width: 25vw;
+    background-color: rgba(182, 182, 182, 0.349);
+    box-shadow: 0px 0px 0px 4px #ffffff2e;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
 }
-.wrapper:hover{
-    transform: scale(1.05);
+.login{
+    color: white;
+    text-align: center;
+}
+.submit{
+    width: 20.5vw;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin-top: 10px;
     
 }
+.wrapper{
+    width: 20vw;
+    height: 30px;
+    border-radius: 5px;
+}
 .file_upload{
-    width: 90%;
-    background: #4CAF50;
+    width: 20vw;
+    background: #00ccff;
     height: 30px;
     border-radius: 10px;
     padding: 5px;
     transition: background-color 1s ease-in-out 0s;
     transition: transform 0.5s ease-in-out 0s;
 }
-.file_upload:hover{
-    transform: scale(1.05);
-}
 .file_upload::file-selector-button {
-  /* margin-right: 10px; */
-  width: 100%;
+  width: 20vw;
   border: none;
-  background: #4CAF50;
+  /* background: #4CAF50; */
+  
+  background-color: var(--button-bg, #00ccff);
   color: white;
   padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
 }
-
-.submit{
-    border: none;
-    outline: none;
-    height: 40px;
-    border-radius: 10px;
-    padding: 5px;
-    transition: all 0.5s ease-in-out 0s;
-    background-color: aqua;
-}
-.submit:hover{
-    transform: scale(1.05);
-}
-.form*{
-    background-color: aquamarine;
-}
-.form{
-    background-color: aquamarine;
-    >h2{
-        background-color: aquamarine;
-    }
-    >div{
-        background-color: aquamarine;
-        >div{
-        background-color: aquamarine;
-    }
-    }
+.files_data{
     display: grid;
-    width: 20%;
-    gap: 20px;
-    padding: 10px;
-    color: aliceblue;
-    /* background-color: rgba(0, 255, 255, 0.207); */
-    backdrop-filter: blur(100px);
-    border-radius: 20px;
-}
-.center{
-    color: rgb(254, 254, 254);
-   background-image: url("https://imgs.search.brave.com/8abf0d4MDbTjXscWgvpXqF9Wy2fpj4rd_fVcGAPgdFs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTc3/Nzc3MzM4Ny9waG90/by9tb3VudGFpbnMt/aW4tdGhlLW1vcm5p/bmctb24tYS1mb2dn/eS1kYXkuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPTlSeFEt/TC00Y3Y4SzZOY09Y/ellDaHA5bmI2Qlk0/ak5TU2tDNk1sQkJH/TFU9");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
-    padding: 5px;
-    text-align: center;
-    justify-items: center;
+    gap: 5px;
     align-items: center;
-    align-content: center;
+}
+.label{
+    color: white;
+    font-size: 20px;
 }

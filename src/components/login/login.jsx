@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./login.module.css"
+import Navbar from "../navigation_bar/navigation_bar";
+import Explorer from "../left_pannel/explorer";
 import { useForm } from "react-hook-form";
 export default function Signup() {
     const [response, setResponse] = useState("")
@@ -21,19 +23,21 @@ export default function Signup() {
         setResponse(r)
         }
     }
-    return (
+    return (<>
+        <nav><Navbar /></nav>
+        <div className={styles.explorer}><Explorer/></div>
         <div className={styles.center}>
-
+            
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                <h2 style={{ padding: "5px" }}>Login {response && <h3><br />{response}</h3>}</h2>
-                <div>
+                <h2 className={styles.login}>Login {response && <h3><br />{response}</h3>}</h2>
+                <div className={styles.fields}>
                     <input className={styles.wrapper} type="email" placeholder="Enter your Email" {...register("Email", { required: "This field is required", minLength: { value: 4, message: "enter your correct email" } })} />
                     {errors.Email && <div className={styles.error}>{errors.Email.message}</div>}
-                    <input className={styles.wrapper} type="password" placeholder="Enter your Email" {...register("Password", { required: "This field is required", minLength: { value: 4, message: "enter your correct Password" } })} />
+                    <input className={styles.wrapper} type="password" placeholder="Enter your Password" {...register("Password", { required: "This field is required", minLength: { value: 4, message: "enter your correct Password" } })} />
                     {errors.Password && <div className={styles.error}>{errors.Password.message}</div>}
                 </div>
                 <input className={styles.submit} type="Submit" />
             </form>
-        </div>
+        </div></>
     )
 }

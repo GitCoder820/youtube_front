@@ -1,5 +1,8 @@
 import hamburger from "./asset/hamburger.svg";
 import youtubelogo from "./asset/youtube-logo.svg";
+import sign_in from "./asset/sign_in.svg";
+import login from "./asset/login.svg";
+import search from "./asset/search.svg";
 import { useForm } from "react-hook-form";
 import { NavLink } from 'react-router-dom';
 import React from "react";
@@ -23,19 +26,23 @@ function Navbar() {
 
     return (
         <div className={styles.flex}>
-            <img src={hamburger} alt="menu" />
-            <img src={youtubelogo} alt="youtube logo" />
+            <div className={styles.icons}>
+                <img src={hamburger} alt="menu" />
+               <div className={styles.youtubelogo}><img className={styles.svg} src={youtubelogo} alt="youtube logo" /> <p>YOUTUBE<sup> IN</sup></p></div>
+                
+            </div>
+            
 
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <input className={styles.input} type="text" placeholder="Search" {...register("Search")} />
-                <button className={styles.button} type="submit"> Search</button>
+                <button className={styles.button} type="submit"> <img src={search} alt="menu" /></button>
             </form>
             <div className={styles.container_login}>
             <NavLink to="/login" className={styles.btn}><div className={styles.signup}>
-                Login</div>
+                <img  className={styles.sign_up_icons} src={login} alt="menu" /> <div>Login</div></div>
             </NavLink>
             <NavLink to="/signup" className={styles.btn}><div className={styles.signup}>
-                SignUp</div>
+                <img  className={styles.sign_up_icons} src={sign_in} alt="menu" /> <div>Sign In</div></div>
             </NavLink>
             </div>
         </div>

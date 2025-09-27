@@ -1,20 +1,22 @@
 import { useState } from "react";
 import styles from "./signup.module.css"
+import Navbar from "../navigation_bar/navigation_bar";
+import Explorer from "../left_pannel/explorer";
 import { useForm } from "react-hook-form";
 export default function Signup() {
     const [user, setUser] = useState({});
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const onSubmit = async (data) => {
         console.log(data);
-       let r = await fetch(
-"https://youtube-backend-8o8a.onrender.com/api/register/signup",
-  {
-    method: 'POST',
-    headers: { "Content-Type": "application/json" }, // note capitalization
-    body: JSON.stringify(data),
-    credentials: "include"   // ✅ must include this for cookies
-  }
-);
+        let r = await fetch(
+            "https://youtube-backend-8o8a.onrender.com/api/register/signup",
+            {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" }, // note capitalization
+                body: JSON.stringify(data),
+                credentials: "include"   // ✅ must include this for cookies
+            }
+        );
 
         if (r.redirected) {
             window.location.href = r.url;
@@ -26,11 +28,13 @@ export default function Signup() {
         }
 
     }
-    return (
+    return (<>
+        <nav><Navbar /></nav>
+        <div className={styles.explorer}><Explorer /></div>
         <div className={styles.center}>
 
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                <h2 style={{ padding: "5px" }}>Sign Up</h2>
+                <h2 className={styles.login}>Sign Up</h2>
                 {/* <h4 style={{padding:"5px"}}>{user}</h4> */}
                 <div>
                     <input className={styles.wrapper} type="text" placeholder="Enter your Name" {...register("Name", { required: "This field is required", minLength: { value: 3, message: "enter your correct Name" } })} />
@@ -57,8 +61,9 @@ export default function Signup() {
                     {errors.Password && <div className={styles.error}>{errors.Password.message}</div>}
                     <div className={styles.error}>{user.channel}</div>
                 </div>
-                <input className={styles.submit} type="Submit" />
+                <div><input className={styles.submit} type="Submit" /></div>
+                
             </form>
-        </div>
+        </div></>
     )
 }

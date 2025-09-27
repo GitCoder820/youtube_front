@@ -1,11 +1,18 @@
+.icons{
+    width: 32px;
+    height: 32px;
+}
 .ul {
+    margin-left: 5px;
     background-color: rgb(0, 0, 0);
     display: grid;
     width: 10%;
+    height: calc(100vh - 92px);
+    justify-content: space-between;
     list-style: none;
     /* gap:30px; */
     padding: 0%;
-
+    justify-content: space-between;
     >li {
 
         /* background-color: rgb(147, 138, 138); */
@@ -15,18 +22,24 @@
             width: 100%;
             display: inline-block;
             >div:hover {
-                background-color: rgb(147, 138, 138);
+                background-color: rgb(188, 183, 183);
                 border-radius: 10px;
+                >img{
+                    filter: invert(100%);
+                }
+                
             }
 
             >div {
+                gap:5px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 align-content: center;
                 text-align: center;
                 height: 100%;
                 border-bottom: 1px solid rgb(147, 138, 138);
-                display: block;
                 background-color: transparent;
-
                 color: white;
             }
         }

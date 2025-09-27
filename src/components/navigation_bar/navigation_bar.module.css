@@ -1,9 +1,32 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
 .container_login{
     display: flex;
     gap:20px;
 }
 .btn{
     text-decoration: none;
+}
+.icons{
+    width:200px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap:20px
+}
+.svg{
+    height: 32px;
+    width: 32px;
+}
+.youtubelogo{
+    font-family:"Overpass", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    gap:10px
 }
 .flex{
     background-color: black;
@@ -22,11 +45,12 @@
     color: white;
 }
 .input{
+    color: black;
     padding-left: 30px;
     margin-right: 0.1px;
     /* border-radius: 15px; */
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     height: 100%;
     width: 80%;
     border: 1px solid rgb(68, 67, 67);
@@ -38,22 +62,27 @@
     padding: 0px;
     background-color: rgb(95, 97, 97);
     /* border-radius: 15px; */
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     height: 108%;
     width: 10%;
     border: 1px solid rgb(68, 67, 67);
+    
 }
 .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0px;
     margin: 0px;
     height: 100%;
     width:40%;
 }
 .signup{
+    gap:10px;
+    display: flex;
     text-decoration: none;
     background-color: rgb(95, 97, 97);
     border-radius: 15px;
-    display: block;
     padding: 10px;
 }
