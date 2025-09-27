@@ -21,7 +21,7 @@
 
 @media (max-width: 900px) and (max-height: 900px) {
     .content {
-        height: calc(100vh - 150px);
+        height: 70vh;
     }
 
     .explorer {
