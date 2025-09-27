@@ -26,7 +26,7 @@ export default function Card(address) {
         </span>
         <des>
             <h4>{address.address.title}</h4>
-            <h4>{view}</h4>
+            <h4>{view} Views</h4>
         </des>
 
     </span>
