@@ -66,15 +66,29 @@
     }
 
     .sidebar {
-        height: 50vh;
+        height: 40vh;
+        width: 80vw;
+
+        >span {
+            >span {
+                >img {
+                    height: auto;
+                    width: 100px;
+                    border-radius: 5px;
+                }
+                >span{
+                    display: none;
+                }
+            }
+        }
     }
 
     .content {
         display: grid;
         word-wrap: break-word;
-        
+
     }
-    
+
 
     .explorer {
         justify-content: center;
