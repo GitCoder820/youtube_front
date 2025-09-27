@@ -64,7 +64,9 @@
     .video {
         width: 80vw
     }
-
+    .video_tag{
+        width: auto;
+    }
     .sidebar {
         height: 40vh;
         width: 80vw;
@@ -89,9 +91,12 @@
     .content {
         display: grid;
         word-wrap: break-word;
-
+        height: auto;
+        
     }
-
+    .white{
+        align-content: normal;
+    }
 
     .explorer {
         justify-content: center;
