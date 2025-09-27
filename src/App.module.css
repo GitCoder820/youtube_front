@@ -21,23 +21,25 @@
 
 @media (max-width: 900px) and (max-height: 900px) {
     .explorer{
+        justify-content: center;
         z-index:10;
         padding-left: 25px;
         padding-bottom: 10px;
         position: absolute;
         bottom: 0px;
         display: inline-block;
-        width: calc(100vw - 20px);
+        width: calc(100vw);
         background-color: black;
         display: flex;
         height: 35px;
         align-items: center;
         >ul{
+            align-items: center;
             margin-right: 15px;
             display: flex;
             justify-content: space-between;
             width: calc(100vw);
-            height:35px;
+            /* height:35px; */
             >li>a>div {
                 border-bottom: transparent;
             }
