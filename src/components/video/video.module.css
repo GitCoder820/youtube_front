@@ -65,13 +65,15 @@
         width: 80vw
     }
 
-    /* .sidebar {
-        display: none;
-    } */
+    .sidebar {
+        height: 50vh;
+    }
 
     .content {
         display: grid;
         word-wrap: break-word;
+        
+    }
     }
 
     .explorer {
