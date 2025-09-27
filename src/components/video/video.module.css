@@ -10,10 +10,11 @@
 
 .video_tag {
     padding: 10px;
+        width: 50vw;
 }
 
 .video {
-    width: 60vw
+    width: 50vw;
 }
 
 .white {
@@ -27,6 +28,8 @@
 .content {
     justify-content: space-between;
     display: flex;
+    width: 90vw;
+    margin-left: 10vw;
     height: 90vh;
     /* width: 80vw; */
     overflow: scroll;
