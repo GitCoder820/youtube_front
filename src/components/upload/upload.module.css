@@ -83,9 +83,11 @@
 
 @media (max-width: 900px) and (max-height: 900px) {
     .explorer {
-        margin: 20px;
+        z-index:10;
+        padding-left: 25px;
+        padding-bottom: 10px;
         position: absolute;
-        bottom: 10px;
+        bottom: 0px;
         display: inline-block;
         width: calc(100vw - 20px);
         /* background-color: aqua; */
