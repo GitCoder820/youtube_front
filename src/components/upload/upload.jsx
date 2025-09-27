@@ -10,6 +10,7 @@ import loading8 from "./loading_svg/loading8.svg";;
 import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
 import styles from "./upload.module.css"
+import Explorer from "../left_pannel/explorer";
 import { set, useForm } from "react-hook-form";
 export default function Upload() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
