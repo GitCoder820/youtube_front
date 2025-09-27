@@ -28,7 +28,7 @@ function Navbar() {
         <div className={styles.flex}>
             <div className={styles.icons}>
                 <img src={hamburger} alt="menu" />
-               <div className={styles.youtubelogo}><img className={styles.svg} src={youtubelogo} alt="youtube logo" /> <p>YOUTUBE<sup> IN</sup></p></div>
+               <div className={styles.youtubelogo}><img className={styles.svg} src={youtubelogo} alt="youtube logo" /> <p className={styles.hidden}>YOUTUBE<sup> IN</sup></p></div>
                 
             </div>
             
@@ -39,10 +39,10 @@ function Navbar() {
             </form>
             <div className={styles.container_login}>
             <NavLink to="/login" className={styles.btn}><div className={styles.signup}>
-                <img  className={styles.sign_up_icons} src={login} alt="menu" /> <div>Login</div></div>
+                <img  className={styles.sign_up_icons} src={login} alt="menu" /> <div className={styles.hidden}>Login</div></div>
             </NavLink>
             <NavLink to="/signup" className={styles.btn}><div className={styles.signup}>
-                <img  className={styles.sign_up_icons} src={sign_in} alt="menu" /> <div>Sign In</div></div>
+                <img  className={styles.sign_up_icons} src={sign_in} alt="menu" /> <div className={styles.hidden}>Sign In</div></div>
             </NavLink>
             </div>
         </div>

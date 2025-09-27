@@ -1,20 +1,23 @@
-.explorer{
+.explorer {
     position: absolute;
     display: flex;
-    gap:20px;
+    gap: 20px;
 }
-.center{
+
+.center {
     height: calc(100vh - 60px);
     width: 100vw;
     background-color: black;
     align-content: center;
     justify-items: center;
 }
-.error{
-    color:white
+
+.error {
+    color: white
 }
-.form{
-    gap:15px;
+
+.form {
+    gap: 15px;
     border-radius: 5px;
     display: grid;
     width: 25vw;
@@ -24,24 +27,28 @@
     align-items: center;
     justify-content: center;
 }
-.login{
+
+.login {
     color: white;
     text-align: center;
 }
-.submit{
+
+.submit {
     width: 20.5vw;
     height: 40px;
     border-radius: 5px;
     margin-bottom: 20px;
     margin-top: 10px;
-    
+
 }
-.wrapper{
+
+.wrapper {
     width: 20vw;
     height: 30px;
     border-radius: 5px;
 }
-.file_upload{
+
+.file_upload {
     width: 20vw;
     background: #00ccff;
     height: 30px;
@@ -50,23 +57,72 @@
     transition: background-color 1s ease-in-out 0s;
     transition: transform 0.5s ease-in-out 0s;
 }
+
 .file_upload::file-selector-button {
-  width: 20vw;
-  border: none;
-  /* background: #4CAF50; */
-  
-  background-color: var(--button-bg, #00ccff);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
+    width: 20vw;
+    border: none;
+    /* background: #4CAF50; */
+
+    background-color: var(--button-bg, #00ccff);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
 }
-.files_data{
+
+.files_data {
     display: grid;
     gap: 5px;
     align-items: center;
 }
-.label{
+
+.label {
     color: white;
     font-size: 20px;
+}
+
+@media (max-width: 900px) and (max-height: 900px) {
+    .explorer {
+        margin: 20px;
+        position: absolute;
+        bottom: 10px;
+        display: inline-block;
+        width: calc(100vw - 20px);
+        /* background-color: aqua; */
+        display: flex;
+        height: 35px;
+        align-items: center;
+
+        >ul {
+            margin-right: 15px;
+            display: flex;
+            justify-content: space-between;
+            width: calc(100vw);
+            height: 35px;
+
+            >li>a>div {
+                border-bottom: transparent;
+            }
+        }
+    }
+
+    .form {
+        width: 80vw;
+    }
+
+    .wrapper {
+        width: 60vw;
+    }
+
+    .submit {
+        width: 62vw;
+    }
+
+    .file_upload {
+        width: 60vw;
+    }
+
+    .file_upload::file-selector-button {
+        width: 60vw;
+    }
 }

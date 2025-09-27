@@ -10,7 +10,8 @@ function App() {
   return (
     < div className={styles.app}>
         <nav><Navbar /></nav>
-        <div className={styles.main}><Explorer />
+        <div className={styles.main}>
+          <div className={styles.explorer}><Explorer /></div>
           <div className={styles.content}><Home /></div>
         </div>
     </div>

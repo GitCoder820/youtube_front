@@ -1,34 +1,38 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 
-.container_login{
+.container_login {
     display: flex;
-    gap:20px;
+    gap: 20px;
 }
-.btn{
+
+.btn {
     text-decoration: none;
 }
-.icons{
-    width:200px;
+
+.icons {
+    width: 200px;
     justify-content: center;
     display: flex;
     align-items: center;
-    gap:20px
+    gap: 20px
 }
-.svg{
+
+.svg {
     height: 32px;
     width: 32px;
 }
-.youtubelogo{
-    font-family:"Overpass", sans-serif;
+
+.youtubelogo {
+    font-family: "Overpass", sans-serif;
     font-weight: 400;
     font-size: 20px;
     justify-content: center;
     display: flex;
     align-items: center;
-    gap:10px
+    gap: 10px
 }
-.flex{
+
+.flex {
     background-color: black;
     display: flex;
     justify-content: space-between;
@@ -36,15 +40,18 @@
     height: 40px;
     align-content: center;
     align-items: center;
-    >a{
+
+    >a {
         text-decoration: none;
         display: block;
     }
 }
-.flex *{
+
+.flex {
     color: white;
 }
-.input{
+
+.input {
     color: black;
     padding-left: 30px;
     margin-right: 0.1px;
@@ -57,7 +64,7 @@
 }
 
 
-.button{
+.button {
     margin: 0px;
     padding: 0px;
     background-color: rgb(95, 97, 97);
@@ -67,22 +74,66 @@
     height: 108%;
     width: 10%;
     border: 1px solid rgb(68, 67, 67);
-    
+
 }
-.form{
+
+.form {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0px;
     margin: 0px;
     height: 100%;
-    width:40%;
+    width: 40%;
 }
-.signup{
-    gap:10px;
+
+.signup {
+    color: white;
+    gap: 10px;
     display: flex;
     text-decoration: none;
     background-color: rgb(95, 97, 97);
     border-radius: 15px;
     padding: 10px;
+}
+
+@media (max-width: 900px) and (max-height: 800px) {
+    .hidden {
+        display: none;
+    }
+
+    .icons {
+        width: 80px;
+    }
+
+    .form {
+        width: 160px;
+    }
+
+    .input {
+        width: 70%;
+        height: 80%;
+    }
+
+    .button {
+        width: 30%;
+        height: 90%;
+    }
+
+    .flex img {
+        width: 24px;
+    }
+
+    .btn {
+        width: 28px;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        align-content: center;
+        text-align: center;
+    }
+
+    .signup {
+        padding: 5px;
+    }
 }

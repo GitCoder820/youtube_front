@@ -45,3 +45,12 @@
         }
     }
 }
+
+@media (max-width: 900px) and (max-height: 800px) {
+  .ul{
+    width:10%
+  }
+  .hidden{
+    display: none;
+  }
+}

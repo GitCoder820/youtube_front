@@ -43,3 +43,37 @@
     height: 30px;
     border-radius: 5px;
 }
+
+@media (max-width: 900px) and (max-height: 900px) {
+    .explorer{
+        margin: 20px;
+        position: absolute;
+        bottom: 10px;
+        display: inline-block;
+        width: calc(100vw - 20px);
+        /* background-color: aqua; */
+        display: flex;
+        height: 35px;
+        align-items: center;
+        >ul{
+            margin-right: 15px;
+            display: flex;
+            justify-content: space-between;
+            width: calc(100vw);
+            height:35px;
+            >li>a>div {
+                border-bottom: transparent;
+            }
+        }
+    }
+
+    .form{
+        width: 80vw;
+    }
+    .wrapper{
+        width: 60vw;
+    }
+    .submit{
+        width: 62vw;
+    }
+}
