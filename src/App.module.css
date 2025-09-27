@@ -46,19 +46,22 @@
             width: calc(100vw);
             height: auto;
 
-            >li> {
+            >li {
                 height: 32px;
-                a> {
+
+                >a {
                     height: auto;
 
-                    div {
+                    >div {
                         border-bottom: transparent;
                     }
                 }
             }
-
-            .main {
-                display: block;
-                height: calc(100vh - 60px);
-            }
         }
+
+        .main {
+            display: block;
+            height: calc(100vh - 60px);
+        }
+    }
+}
