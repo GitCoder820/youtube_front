@@ -22,12 +22,12 @@
 @media (max-width: 900px) and (max-height: 900px) {
     .explorer{
         z-index:10;
-        margin: 20px;
+        padding-left: 25px;
         position: absolute;
         bottom: 10px;
         display: inline-block;
         width: calc(100vw - 20px);
-        /* background-color: aqua; */
+        background-color: black;
         display: flex;
         height: 35px;
         align-items: center;
