@@ -20,7 +20,7 @@ export default function Card(address) {
         navigate(`/video`);
     };
     return (<span className={styles.main}>
-        <span style={{ display: "inline-block" }}>
+        <span style={{ display: "inline-block",position:"relative" }}>
             <img className={styles.image} src={`https://youtube-backend-8o8a.onrender.com/api/download/${encodeURIComponent(address.address.thumbnail)}`} width={size} onClick={() => handleVideoLoad(address)} />
             <span className={styles.float}>{address.address.duration}</span>
         </span>

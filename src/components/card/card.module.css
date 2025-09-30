@@ -1,16 +1,17 @@
-
-.main *{
+.main * {
     padding: 0px;
     margin: 0px;
     color: white;
     background-color: black;
 }
-.image:hover{
+
+.image:hover {
     transform: scale(1.1);
     /* padding: 10px; */
 }
-.image{
-    height: 168px;
+
+.image {
+    height: 200px;
     width: calc((90vw - 80px) / 3);
     transition: all 0.2s ease-in-out 0s;
     border-radius: 20px;
@@ -18,20 +19,22 @@
     padding: 10px; */
     /* position: absolute; */
 }
-.main{
+
+.main {
     display: inline-block;
     position: relative;
     margin: 10px;
     width: calc((90vw - 80px) / 3);
     /* padding: 10px; */
-    
+
 }
-.float{
+
+.float {
     border-radius: 5px;
     background-color: rgb(134, 141, 138);
     color: white;
     position: absolute;
-    top: 140px;
-    left: 248px;
+    bottom: 20px;
+    right: 30px;
     backdrop-filter: blur(20px);
 }
