@@ -11,7 +11,7 @@
 }
 .image{
     height: 168px;
-    width: calc(90 vw - 80px)/3;
+    width: calc((90vw - 80px) / 3);
     transition: all 0.2s ease-in-out 0s;
     border-radius: 20px;
     /* margin: 10px;
@@ -22,7 +22,7 @@
     display: inline-block;
     position: relative;
     margin: 10px;
-    width :calc(90 vw - 80px)/3;
+    width: calc((90vw - 80px) / 3);
     /* padding: 10px; */
     
 }
