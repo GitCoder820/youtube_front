@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Card from "../card/card";
+import { BASE_URL } from "../../../urls";
 function Home() {
     const [list, setList] = useState([]);
     const address = async () => {
-        let vid = await fetch("https://youtube-backend-8o8a.onrender.com/api/list", { method: 'GET' });
+        let vid = await fetch(`${BASE_URL}/api/list`, { method: 'GET' });
         console.log("bleow")
         // let l=await vid.text()
         // console.log(l);

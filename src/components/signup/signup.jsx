@@ -3,13 +3,14 @@ import styles from "./signup.module.css"
 import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
 import { useForm } from "react-hook-form";
+import { BASE_URL } from "../../../urls";
 export default function Signup() {
     const [user, setUser] = useState({});
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const onSubmit = async (data) => {
         console.log(data);
         let r = await fetch(
-            "https://youtube-backend-8o8a.onrender.com/api/register/signup",
+            `${BASE_URL}/api/register/signup`,
             {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" }, // note capitalization

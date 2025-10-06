@@ -7,6 +7,7 @@ import Explorer from "../left_pannel/explorer";
 import Home from "../home/home";
 import { getObj } from "../../data"
 import styles from "./video.module.css"
+import { BASE_URL } from "../../../urls";
 export default function Video() {
   const navigate = useNavigate();
   const handleBack = () => {
@@ -36,7 +37,7 @@ export default function Video() {
       <div className={styles.content}>
         <div className={styles.video_tag}>
           <video className={styles.video}
-            src={`https://youtube-backend-8o8a.onrender.com/api/download/${encodeURIComponent(obj.Video)}`}
+            src={`${BASE_URL}/api/download/${encodeURIComponent(obj.Video)}`}
             muted:false
             controls
             autoPlay

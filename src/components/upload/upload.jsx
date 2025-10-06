@@ -11,6 +11,7 @@ import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
 import styles from "./upload.module.css"
 import { set, useForm } from "react-hook-form";
+import { BASE_URL } from "../../../urls";
 export default function Upload() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [user, setUser] = useState("");
@@ -19,7 +20,7 @@ export default function Upload() {
         const formData = new FormData();
         formData.append("Title", data.Title);
         try {
-            let check = await fetch("https://youtube-backend-8o8a.onrender.com/api/list/check", {
+            let check = await fetch(`${BASE_URL}/api/list/check`, {
                 method: "POST",
                 body: formData,
                 credentials: "include"
@@ -29,7 +30,7 @@ export default function Upload() {
                 formData.append("Thumbnail", data.Thumbnail[0]);
                 formData.append("Video", data.Video[0]);
                 console.log(data.Thumbnail[0]);
-                let res = await fetch("https://youtube-backend-8o8a.onrender.com/api/list/upload/files", {
+                let res = await fetch(`${BASE_URL}/api/list/upload/files`, {
                     method: "POST",
                     body: formData,
                     credentials: "include"

@@ -4,15 +4,16 @@ import styles from "./card.module.css"
 import { useNavigate } from "react-router-dom"
 import { setObj } from "../../data"
 import { getObj } from "../../data"
+import { BASE_URL } from "../../../urls";
 export default function Card(address) {
     const [view, setView] = useState(address.address.views);
     const navigate = useNavigate();
     const [size, setSize] = useState(300)
     const handleVideoLoad = () => {
         setView(address.address.views + 1);
-        console.log("video clicked")
+        console.log("video clicked");
         setObj(address.address)
-        let res = fetch("https://youtube-backend-8o8a.onrender.com/api/list/ins", {
+        let res = fetch(`${BASE_URL}/api/list/ins`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(getObj())
@@ -21,7 +22,7 @@ export default function Card(address) {
     };
     return (<span className={styles.main}>
         <span style={{ display: "inline-block",position:"relative" }}>
-            <img className={styles.image} src={`https://youtube-backend-8o8a.onrender.com/api/download/${encodeURIComponent(address.address.thumbnail)}`} width={size} onClick={() => handleVideoLoad(address)} />
+            <img className={styles.image} src={`${BASE_URL}/api/download/${encodeURIComponent(address.address.thumbnail)}`} width={size} onClick={() => handleVideoLoad(address)} />
             <span className={styles.float}>{address.address.duration}</span>
         </span>
         <des>

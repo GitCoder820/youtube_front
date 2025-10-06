@@ -7,11 +7,12 @@ import { useForm } from "react-hook-form";
 import { NavLink } from 'react-router-dom';
 import React from "react";
 import styles from  "./navigation_bar.module.css"
+import { BASE_URL } from "../../../urls";
 function Navbar() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
 
     const onSubmit = async (data) => {
-        const r = await fetch("https://youtube-backend-8o8a.onrender.com/api/search", {
+        const r = await fetch(`${BASE_URL}/api/search`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
