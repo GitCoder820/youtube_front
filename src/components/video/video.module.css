@@ -12,6 +12,7 @@
 .video_tag {
     padding: 10px;
     width: 50vw;
+    color: white;
 }
 
 .video {
@@ -67,6 +68,7 @@
     }
     .video_tag{
         width: auto;
+        color: white;
     }
     .sidebar {
         height: 50vh;

@@ -9,6 +9,9 @@ import Upload from './components/upload/upload.jsx';
 import Home from './components/home/home';
 import Video from './components/video/Video.jsx';
 import upload from './components/upload/upload.jsx';
+import Searched from './components/searched content/search.jsx';
+import { useState } from 'react';
+import { list } from './components/navigation_bar/searchedlist.js';
 const router= createBrowserRouter([
     {path:"/",
       element:<><App/></>
@@ -24,6 +27,10 @@ const router= createBrowserRouter([
     },
     {path:"/login",
       element:<><Login/></>
+    },
+    {
+      path:"/searchpage",
+      element:<><Searched/></>
     },
     { path: "/video", element: <><Video /> </>},
     // {path:"/video_page",element:<><Vnav/></>}

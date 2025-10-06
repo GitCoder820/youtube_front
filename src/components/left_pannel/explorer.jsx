@@ -8,7 +8,7 @@ import you from "./asset/you.svg"
 import upload from "./asset/upload.svg"
 import like from "./asset/like.svg"
 import { useEffect, useState } from "react"
-export default function () {
+export default function Explorer() {
     const [red,setRed]=useState("red")
     useEffect(() => {
     const el = document.getElementById(getCurrent());
