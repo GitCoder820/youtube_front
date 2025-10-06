@@ -71,9 +71,9 @@
         color: white;
     }
     .sidebar {
-        height: 50vh;
+        /* height: 50vh; */
         width: 80vw;
-
+        margin-bottom: 70px;
         >span {
             >des{
                 padding-top: 0px;

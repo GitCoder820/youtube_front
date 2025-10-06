@@ -15,8 +15,9 @@ import { additems } from "./searchedlist";
 function Navbar() {
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-
+    const [loads,setLoads]=useState(false);
     const onSubmit = async (data) => {
+        setLoads(true);
         const r = await fetch(`${BASE_URL}/api/list/search`, {
             method: "POST",
             headers: {
@@ -30,6 +31,7 @@ function Navbar() {
         reset({ Search: "" });
         // reset();
         navigate("/searchpage", { state: { searchResults: res } });
+        setLoads(false);
     };
 
     return (
@@ -43,7 +45,7 @@ function Navbar() {
 
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <input className={styles.input} type="text" placeholder="Search" {...register("Search")} />
-                <button className={styles.button} type="submit"> <img src={search} alt="menu" /></button>
+                <button className={styles.button} type="submit" disabled={loads}> <img src={search} alt="menu" /></button>
             </form>
             <div className={styles.container_login}>
                 <NavLink to="/login" className={styles.btn}><div className={styles.signup}>

@@ -10,7 +10,7 @@ export default function Card(address) {
     const navigate = useNavigate();
     const [size, setSize] = useState(300)
     const handleVideoLoad = () => {
-        setView(address.address.views + 1);
+        setView(view+1);
         console.log("video clicked");
         setObj(address.address)
         let res = fetch(`${BASE_URL}/api/list/ins`, {
