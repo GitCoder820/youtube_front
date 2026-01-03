@@ -3,6 +3,7 @@ import youtubelogo from "./asset/youtube-logo.svg";
 import sign_in from "./asset/sign_in.svg";
 import login from "./asset/login.svg";
 import search from "./asset/search.svg";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Navigate, NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
@@ -12,10 +13,18 @@ import { BASE_URL } from "../../../urls";
 import { useState } from "react";
 import Card from "../card/card";
 import { additems } from "./searchedlist";
+import { logged } from "../login/logged";
 function Navbar() {
     const navigate = useNavigate();
+    const [status, setStatus] = useState("login");
+    useEffect(() => {
+        console.log("hello");
+        if(logged){
+            setStatus(logged)
+        }
+    }, []);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
-    const [loads,setLoads]=useState(false);
+    const [loads, setLoads] = useState(false);
     const onSubmit = async (data) => {
         setLoads(true);
         const r = await fetch(`${BASE_URL}/api/list/search`, {
@@ -49,7 +58,7 @@ function Navbar() {
             </form>
             <div className={styles.container_login}>
                 <NavLink to="/login" className={styles.btn}><div className={styles.signup}>
-                    <img className={styles.sign_up_icons} src={login} alt="menu" /> <div className={styles.hidden}>Login</div></div>
+                    <img className={styles.sign_up_icons} src={login} alt="menu" /> <div className={styles.hidden}>{status}</div></div>
                 </NavLink>
                 <NavLink to="/signup" className={styles.btn}><div className={styles.signup}>
                     <img className={styles.sign_up_icons} src={sign_in} alt="menu" /> <div className={styles.hidden}>Sign In</div></div>

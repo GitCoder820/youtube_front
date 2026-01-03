@@ -12,7 +12,7 @@ function Home() {
 
         setList(l)
         console.log("this is video")
-        // console.log(list)
+        console.log(l)
         console.log("this is list")
     }
     useEffect(() => {
@@ -20,7 +20,7 @@ function Home() {
     }, [])
     return (
         <>
-            {list.map((value, index) => (
+            {list.map((value,index) => (
                 <Card address={value} />
             ))}
             

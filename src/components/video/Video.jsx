@@ -1,34 +1,49 @@
 import { useParams } from "react-router-dom";
-import { setCount } from "../../data";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
 import Home from "../home/home";
-import { getObj } from "../../data"
 import styles from "./video.module.css"
 import { BASE_URL } from "../../../urls";
+import { useLocation } from "react-router-dom";
 export default function Video() {
   const navigate = useNavigate();
-  const handleBack = () => {
-    console.log("Browser back button pressed!");
-    setCount();
-    navigate("/home");
-    return () => {
-      window.removeEventListener("popstate", handleBack);
-    };
-  };
+  const location =useLocation();
+  // const handleBack = () => {
+  //   console.log("Browser back button pressed!");
+  //   setCount();
+  //   navigate("/home");
+  //   return () => {
+  //     window.removeEventListener("popstate", handleBack);
+  //   };
+  // };
 
-  window.addEventListener("popstate", handleBack);
+  // window.addEventListener("popstate", handleBack);
+  
+  addEventListener("keydown", (event) => {
+    let elem=document.getElementById("Videoplaytag");
+    if(event.key=="F"||event.key=="f"){
+      elem.requestFullscreen();
+      console.log(event.key);
+    }
+    else if(event.key=="i"||event.key=="I"){
+      document.exitFullscreen();
+    }
+    else if(event.key=="k"||event.key=="K"){
+      elem.requestPictureInPicture();
+    }
 
-  let obj = getObj()
-  if (!obj) {
-    obj = {};
-    obj.channel_name = "Select a video"
-    obj.link = "no link"
-    obj.title = "No Video is selcted"
+  })
+  let vid_data=location.state.searchResults;
+  let vid_link=vid_data.Video;
+  console.log("video link is" + vid_link);
+  if (!vid_data) {
+    vid_data = {};
+    vid_data.channel_name = "Select a video";
+    vid_link = "no link";
+    vid_data.title = "No Video is selcted";
   }
-  console.log(getObj())
   console.log("video is opening")
   return (<>
     <nav><Navbar /></nav>
@@ -36,17 +51,17 @@ export default function Video() {
     <div className={styles.white}>
       <div className={styles.content}>
         <div className={styles.video_tag}>
-          <video className={styles.video}
-            src={`${BASE_URL}/api/download/${encodeURIComponent(obj.Video)}`}
+          <video id="Videoplaytag" className={styles.video}
+            src={`${BASE_URL}/api/download/${encodeURIComponent(vid_link)}`}
             muted:false
             controls
             autoPlay
-          // height="800"
+            controlsList="nodownload"
           />
           <br />
-          {obj.title}
+          {vid_data.title}
           <br />
-          {obj.channel_name}
+          {vid_data.channel_name}
         </div>
         <div className={styles.sidebar} >
           <Home />

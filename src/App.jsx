@@ -4,9 +4,9 @@ import viteLogo from '/vite.svg'
 import Home from './components/home/home'
 import styles from './App.module.css'
 import Navbar from './components/navigation_bar/navigation_bar'
+import Login from './components/login/login'
 import Explorer from './components/left_pannel/explorer'
 function App() {
-  const [vdata, setVdata] = useState("hi");
   return (
     < div className={styles.app}>
         <nav><Navbar /></nav>

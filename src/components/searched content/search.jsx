@@ -26,8 +26,7 @@ export default function Searched() {
                 <div className={styles.content}>{list.length>0 ? (list.map((value, index) => (
                     <Card address={value} />
                 ))):(<div style={{color:"white"}}>No search</div>)}
-                </div>
-                
+                </div>   
             </div>
         </div>
 

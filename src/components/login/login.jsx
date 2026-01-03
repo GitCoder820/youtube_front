@@ -1,11 +1,14 @@
 import { useState } from "react";
 import styles from "./login.module.css"
 import Navbar from "../navigation_bar/navigation_bar";
+import { useNavigate } from "react-router-dom"
 import Explorer from "../left_pannel/explorer";
 import { useForm } from "react-hook-form";
 import { BASE_URL } from "../../../urls";
-export default function Signup() {
+import { loggedstatus } from "./logged";
+export default function Login() {
     const [response, setResponse] = useState("")
+    const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const onSubmit = async (data) => {
         console.log(data);
@@ -15,8 +18,15 @@ export default function Signup() {
         body: JSON.stringify(data),
         credentials: "include"
     });
-        if (r.redirected) {
-            window.location.href = r.url;
+        if (r.ok==true) {
+            r = await r.json();
+            console.log(r)
+            setResponse(r.message)
+            setTimeout(()=>{
+                localStorage.setItem("login", "logged");
+                loggedstatus(r.name)
+                navigate("/home");
+            },2000)
         }
         else {
         r = await r.text();

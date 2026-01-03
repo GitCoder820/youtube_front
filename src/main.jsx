@@ -12,6 +12,7 @@ import upload from './components/upload/upload.jsx';
 import Searched from './components/searched content/search.jsx';
 import { useState } from 'react';
 import { list } from './components/navigation_bar/searchedlist.js';
+
 const router= createBrowserRouter([
     {path:"/",
       element:<><App/></>
