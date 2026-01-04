@@ -18,8 +18,8 @@
     border-radius: 5px;
     display: grid;
     width: 25vw;
-    background-color: rgba(182, 182, 182, 0.349);
-    box-shadow: 0px 0px 0px 4px #ffffff2e;
+    background-color: rgb(90 85 85 / 33%);
+    box-shadow: 0px 0px 0px 4px #aba1a12e;
     align-content: center;
     align-items: center;
     justify-content: center;

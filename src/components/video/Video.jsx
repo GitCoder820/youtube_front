@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
+import videoHome from "../videoHome/videohome";
 import Home from "../home/home";
 import styles from "./video.module.css"
 import { BASE_URL } from "../../../urls";
@@ -32,6 +33,22 @@ export default function Video() {
     }
     else if(event.key=="k"||event.key=="K"){
       elem.requestPictureInPicture();
+    }
+    else if(event.key==" "){
+      if(elem.paused){
+        elem.play();
+        console.log("played")
+      }
+      else{
+        elem.pause();
+        console.log("paused")
+      }
+    }
+    else if(event.key=="ArrowRight"){
+      elem.currentTime+=5;
+    }
+    else if(event.key=="ArrowLeft"){
+      elem.currentTime-=5;
     }
 
   })
@@ -64,7 +81,7 @@ export default function Video() {
           {vid_data.channel_name}
         </div>
         <div className={styles.sidebar} >
-          <Home />
+          <videoHome />
         </div>
       </div>
     </div>

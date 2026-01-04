@@ -1,8 +1,8 @@
 .activeLink{
-    background-color: rgb(188, 183, 183);
+    background-color: rgb(56 56 56);;
     border-radius: 10px;
 >div {
-    background-color: rgb(188, 183, 183);
+    background-color: rgb(56 56 56);;
     border-radius: 10px;
 
     >img {
@@ -12,7 +12,7 @@
 }
 
 .Red>div {
-    background-color: rgb(188, 183, 183);
+    background-color: rgb(56 56 56);;
     border-radius: 10px;
 
     >img {
