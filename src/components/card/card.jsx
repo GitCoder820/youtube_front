@@ -42,9 +42,9 @@ export default function Card({address,setresd}) {
         }
 
     }
-
+    const uploadTimestr=address.publish_date;
     // const uploadTimestr=address.address.publish_date;
-    const uploadTimestr = "2025-12-06T15:52:09.000Z"
+    // const uploadTimestr = "2025-12-06T15:52:09.000Z"
     const uploadTime = new Date(uploadTimestr);
     const currentTime = new Date();
     const uploadDateTime = currentTime.getTime() - uploadTime.getTime();
