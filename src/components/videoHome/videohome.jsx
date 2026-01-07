@@ -1,31 +1,30 @@
 import { useEffect, useState } from "react";
 import { BASE_URL } from "../../../urls";
-
-function videoHome() {
+import VideoCard from "./videocard";
+export default function VideoHome({ setresd }) {
     const [list, setList] = useState([]);
     const address = async () => {
         let vid = await fetch(`${BASE_URL}/api/list`, { method: 'GET' });
-        console.log("bleow")
         // let l=await vid.text()
         // console.log(l);
         let l = await vid.json();
 
         setList(l)
-        console.log("this is video")
-        console.log(l)
-        console.log("this is videoHOMEEEE")
     }
     useEffect(() => {
         address();
     }, [])
     return (
         <>
-            {list.map((value,index) => (
-                <videoCard/>
+            {list.map((value, index) => (
+                <VideoCard
+                    key={index}
+                    address={value}
+                    setresd={setresd}
+                />
             ))}
-            
         </>
     )
 }
 
-export default videoHome;
+

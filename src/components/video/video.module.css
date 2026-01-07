@@ -11,12 +11,18 @@
 
 .video_tag {
     padding: 10px;
-    width: 50vw;
+    width: 60vw;
     color: white;
+    overflow: scroll;
+    scrollbar-width: none;
+    padding: 5px;
+    margin: 10px;
+    
 }
 
 .video {
-    width: 50vw;
+    width: 55vw;
+    background: #1e2020;
 }
 
 .white {
@@ -34,10 +40,37 @@
     margin-left: 10vw;
     height: 90vh;
     /* width: 80vw; */
-    overflow: scroll;
+    /* overflow: hidden; */
     scrollbar-width: none;
 }
-
+.vidcontent{  
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    display: grid;
+}
+.commnetBox{
+    margin-top: 10px;
+    /* height: 100px; */
+    /* overflow: hidden; */
+}
+.title{
+    font-size: 28px;
+}
+.channelName{
+    font-size: 18px;
+    color: #9ea1a1;
+}
+.subscribe{
+    height: 40px;
+    width: 100px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+.channelSubcribe{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
 .sidebar {
     span>span>img:hover {
         transform: scale(1);
@@ -47,7 +80,8 @@
     /* position: absolute; */
     margin-left: 10px;
     right: 10px;
-    overflow: scroll;
+    overflow: hidden;
+    /* overflow: scroll; */
     scrollbar-width: none;
 
     /* background-color: aqua; */
@@ -63,8 +97,13 @@
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
+    .commnetBox{
+    /* height: 80px; */
+    /* overflow: hidden; */
+}
     .video {
-        width: 80vw
+        width: 80vw;
+        height: 20vh;
     }
     .video_tag{
         width: auto;

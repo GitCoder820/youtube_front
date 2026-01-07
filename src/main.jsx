@@ -33,7 +33,7 @@ const router= createBrowserRouter([
       path:"/searchpage",
       element:<><Searched/></>
     },
-    { path: "/video", element: <><Video /> </>},
+    { path: "/video", element: <><Video key={Date.now()} /></>},
     // {path:"/video_page",element:<><Vnav/></>}
   ])
 

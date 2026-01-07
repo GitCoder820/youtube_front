@@ -11,14 +11,12 @@ import React from "react";
 import styles from "./navigation_bar.module.css"
 import { BASE_URL } from "../../../urls";
 import { useState } from "react";
-import Card from "../card/card";
 import { additems } from "./searchedlist";
 import { logged } from "../login/logged";
 function Navbar() {
     const navigate = useNavigate();
     const [status, setStatus] = useState("login");
     useEffect(() => {
-        console.log("hello");
         if(logged){
             setStatus(logged)
         }
@@ -35,7 +33,6 @@ function Navbar() {
             body: JSON.stringify(data),
         });
         let res = await r.json();
-        console.log("Form submitted:", res);
         additems(res);
         reset({ Search: "" });
         // reset();

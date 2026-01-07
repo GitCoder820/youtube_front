@@ -1,0 +1,20 @@
+.comment *{
+    padding: 0px;
+    margin: 0px;
+}
+.comment{
+    background-color:  black;
+    padding: 0px;
+    border-radius: 10px;
+}
+.content{
+    padding: 10px;
+    background-color: #181b1b;
+    border: 1px solid #606666;
+    border-radius: 20px;
+    color: aliceblue;
+}
+.user{
+    margin-right: 10px;
+    color: #c4ddf3;
+}

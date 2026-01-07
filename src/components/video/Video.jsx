@@ -3,16 +3,22 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
-import videoHome from "../videoHome/videohome";
+import VideoHome from "../videoHome/videohome";
 import Home from "../home/home";
 import styles from "./video.module.css"
 import { BASE_URL } from "../../../urls";
 import { useLocation } from "react-router-dom";
-export default function Video() {
+import Comment from "./commnet/Comment";
+export default function Video({viddata}) {
   const navigate = useNavigate();
   const location =useLocation();
+  const [resd,setresd]= useState();
+  // const [vidData,setvidData]= useState();
+  const [Video,setVideo]= useState("");
+  const [channel_name,setchannel_name]= useState("");
+  const [title,settitle]= useState("");
+  const [vidid,setid]= useState("");
   // const handleBack = () => {
-  //   console.log("Browser back button pressed!");
   //   setCount();
   //   navigate("/home");
   //   return () => {
@@ -23,10 +29,10 @@ export default function Video() {
   // window.addEventListener("popstate", handleBack);
   
   addEventListener("keydown", (event) => {
+    
     let elem=document.getElementById("Videoplaytag");
     if(event.key=="F"||event.key=="f"){
       elem.requestFullscreen();
-      console.log(event.key);
     }
     else if(event.key=="i"||event.key=="I"){
       document.exitFullscreen();
@@ -37,11 +43,9 @@ export default function Video() {
     else if(event.key==" "){
       if(elem.paused){
         elem.play();
-        console.log("played")
       }
       else{
         elem.pause();
-        console.log("paused")
       }
     }
     else if(event.key=="ArrowRight"){
@@ -52,16 +56,24 @@ export default function Video() {
     }
 
   })
-  let vid_data=location.state.searchResults;
-  let vid_link=vid_data.Video;
-  console.log("video link is" + vid_link);
-  if (!vid_data) {
-    vid_data = {};
-    vid_data.channel_name = "Select a video";
-    vid_link = "no link";
-    vid_data.title = "No Video is selcted";
-  }
-  console.log("video is opening")
+  useEffect(()=>{
+    console.log("resd",resd)
+    if (!resd) return;
+    setVideo(resd.Video)
+    settitle(resd.title)
+    setchannel_name(resd.channelName)
+    setid(resd._id)
+  },[resd])
+  useEffect(()=>{
+    console.log("reloaded")
+    if (!resd){
+    let vid_data=location.state.searchResults;
+    setVideo(vid_data.Video)
+    settitle(vid_data.title)
+    setchannel_name(vid_data.channelName)
+    setid(vid_data._id)
+    }
+  },[])
   return (<>
     <nav><Navbar /></nav>
     <div className={styles.explorer}><Explorer /></div>
@@ -69,21 +81,30 @@ export default function Video() {
       <div className={styles.content}>
         <div className={styles.video_tag}>
           <video id="Videoplaytag" className={styles.video}
-            src={`${BASE_URL}/api/download/${encodeURIComponent(vid_link)}`}
+            src={`${BASE_URL}/api/download/${encodeURIComponent(Video)}`}
             muted:false
             controls
             autoPlay
             controlsList="nodownload"
           />
-          <br />
-          {vid_data.title}
-          <br />
-          {vid_data.channel_name}
+          <div className={styles.vidcontent}>
+            <span className={styles.title}>{title}</span>
+            <div className={styles.channelSubcribe}>
+            <div>
+              <span className={styles.channelName}>{channel_name}</span>
+              <span className={styles.channelSubscribe}></span>
+            </div>
+            <button className={styles.subscribe}>Subscribe</button>
+            </div>
+          </div>
+          <div className={styles.commnetBox}>
+            <Comment id={vidid} />  
+        </div>
         </div>
         <div className={styles.sidebar} >
-          <videoHome />
+          <VideoHome setresd={setresd}/>
         </div>
-      </div>
+      </div> 
     </div>
     </>
   )

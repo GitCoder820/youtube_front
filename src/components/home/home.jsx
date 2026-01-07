@@ -1,31 +1,26 @@
 import { useEffect, useState } from "react";
 import Card from "../card/card";
 import { BASE_URL } from "../../../urls";
-function Home() {
+export default function Home({ setappv }) {
     const [list, setList] = useState([]);
     const address = async () => {
         let vid = await fetch(`${BASE_URL}/api/list`, { method: 'GET' });
-        console.log("bleow")
-        // let l=await vid.text()
-        // console.log(l);
         let l = await vid.json();
 
         setList(l)
-        console.log("this is video")
-        console.log(l)
-        console.log("this is list")
     }
     useEffect(() => {
         address();
     }, [])
     return (
         <>
-            {list.map((value,index) => (
-                <Card address={value} />
+            {list.map((value, index) => (
+                <Card
+                    key={index}
+                    address={value}
+                    setappv={setappv}
+                />
             ))}
-            
         </>
     )
 }
-
-export default Home;

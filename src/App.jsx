@@ -6,13 +6,16 @@ import styles from './App.module.css'
 import Navbar from './components/navigation_bar/navigation_bar'
 import Login from './components/login/login'
 import Explorer from './components/left_pannel/explorer'
+import Video from './components/video/Video'
 function App() {
+  const [appv,setappv]=useState();
   return (
     < div className={styles.app}>
         <nav><Navbar /></nav>
         <div className={styles.main}>
           <div className={styles.explorer}><Explorer /></div>
-          <div className={styles.content}><Home /></div>
+          <div className={styles.content}><Home setappv={setappv}/></div>
+          {/* <div style={{display:'none'}}><Video viddata={appv} /></div> */}
         </div>
     </div>
   )

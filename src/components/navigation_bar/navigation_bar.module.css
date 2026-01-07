@@ -128,12 +128,12 @@
 
     .input {
         width: 70%;
-        height: 80%;
+        height: 100%;
     }
 
     .button {
         width: 30%;
-        height: 90%;
+        height: 100%;
     }
 
     .flex img {
