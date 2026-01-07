@@ -20,6 +20,9 @@ export default function Login() {
     });
         if (r.ok==true) {
             r = await r.json();
+            const token = r.token;
+            console.log(token)
+            document.cookie = `token=${token}; path=/; max-age=${60 * 60 * 24}`;
             console.log(r)
             setResponse(r.message)
             setTimeout(()=>{

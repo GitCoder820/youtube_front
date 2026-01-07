@@ -27,6 +27,11 @@ export default function Comment(id) {
         setComment([])
         commentsfun()
         reset({ Comment: "" });
+        document.getElementById("text").addEventListener("keydown", (event) => {
+        event.stopPropagation();
+        })
+        console.log("added")
+        
     };
     async function commentsfun() {
         console.log(id)
