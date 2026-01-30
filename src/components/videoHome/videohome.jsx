@@ -4,7 +4,7 @@ import VideoCard from "./videocard";
 export default function VideoHome({ setresd }) {
     const [list, setList] = useState([]);
     const address = async () => {
-        let vid = await fetch(`${BASE_URL}/api/list`, { method: 'GET' });
+        let vid = await fetch(`/api/list`, { method: 'GET' });
         // let l=await vid.text()
         // console.log(l);
         let l = await vid.json();

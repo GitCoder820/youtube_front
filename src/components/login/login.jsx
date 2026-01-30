@@ -12,7 +12,7 @@ export default function Login() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const onSubmit = async (data) => {
         console.log(data);
-        let r = await fetch(`${BASE_URL}/api/register/login`, {
+        let r = await fetch(`/api/register/login`, {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),

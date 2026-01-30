@@ -4,7 +4,7 @@ import { BASE_URL } from "../../../urls";
 export default function Home({ setappv }) {
     const [list, setList] = useState([]);
     const address = async () => {
-        let vid = await fetch(`${BASE_URL}/api/list`, { method: 'GET' });
+        let vid = await fetch(`/api/list`, { method: 'GET' });
         let l = await vid.json();
 
         setList(l)

@@ -81,7 +81,7 @@ export default function Video({viddata}) {
       <div className={styles.content}>
         <div className={styles.video_tag}>
           <video id="Videoplaytag" className={styles.video}
-            src={`${BASE_URL}/api/download/${encodeURIComponent(Video)}`}
+            src={`/api/download/${encodeURIComponent(Video)}`}
             muted:false
             controls
             autoPlay

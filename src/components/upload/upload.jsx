@@ -20,7 +20,7 @@ export default function Upload() {
         const formData = new FormData();
         formData.append("Title", data.Title);
         try {
-            let check = await fetch(`${BASE_URL}/api/list/check`, {
+            let check = await fetch(`/api/list/check`, {
                 method: "POST",
                 body: formData,
                 credentials: "include"
@@ -30,7 +30,7 @@ export default function Upload() {
                 formData.append("Thumbnail", data.Thumbnail[0]);
                 formData.append("Video", data.Video[0]);
                 console.log(data.Thumbnail[0]);
-                let res = await fetch(`${BASE_URL}/api/list/upload/files`, {
+                let res = await fetch(`/api/list/upload/files`, {
                     method: "POST",
                     body: formData,
                     credentials: "include"

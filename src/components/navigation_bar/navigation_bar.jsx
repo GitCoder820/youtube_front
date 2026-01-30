@@ -25,7 +25,7 @@ function Navbar() {
     const [loads, setLoads] = useState(false);
     const onSubmit = async (data) => {
         setLoads(true);
-        const r = await fetch(`${BASE_URL}/api/list/search`, {
+        const r = await fetch(`/api/list/search`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

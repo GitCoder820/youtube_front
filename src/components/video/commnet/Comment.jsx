@@ -12,7 +12,7 @@ export default function Comment(id) {
     const onSubmit = async (data) => {
         data.id = id.id
         let res = await fetch(
-            `${BASE_URL}/api/comment/upload/add`,
+            `/api/comment/upload/add`,
             {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" }, // note capitalization
@@ -37,7 +37,7 @@ export default function Comment(id) {
         console.log(id)
         setData(id)
         let res = await fetch(
-            `${BASE_URL}/api/comment/load`,
+            `/api/comment/load`,
             {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" }, // note capitalization

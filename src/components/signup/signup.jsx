@@ -15,7 +15,7 @@ export default function Signup() {
     const onSubmit = async (data) => {
         console.log(data);
         let r = await fetch(
-            `${BASE_URL}/api/register/signup`,
+            `/api/register/signup`,
             {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" }, // note capitalization
@@ -42,7 +42,7 @@ export default function Signup() {
         console.log(data)
         formSubmit["OTP"] = data.OTP;
         let r = await fetch(
-            `${BASE_URL}/api/register/signupotp`,
+            `/api/register/signupotp`,
             {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" }, // note capitalization

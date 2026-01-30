@@ -4,8 +4,8 @@ import styles from "./card.module.css"
 import { useNavigate } from "react-router-dom"
 import { BASE_URL } from "../../../urls";
 import { useEffect } from "react";
-export default function Card({address,setresd}) {
-    
+export default function Card({ address, setresd }) {
+
     const navigate = useNavigate();
     // const colorThief = new ColorThief();
     const [size, setSize] = useState(300)
@@ -14,7 +14,7 @@ export default function Card({address,setresd}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [bgurl, seturl] = useState();
     async function bgurlset() {
-        let bg= await fetch(`${BASE_URL}/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`)
+        let bg = await fetch(`/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`)
         seturl(bg.url)
     }
     function viewCount(views) {
@@ -42,21 +42,22 @@ export default function Card({address,setresd}) {
         }
 
     }
-    const uploadTimestr=address.publish_date;
-    // const uploadTimestr=address.address.publish_date;
-    // const uploadTimestr = "2025-12-06T15:52:09.000Z"
-    const uploadTime = new Date(uploadTimestr);
-    const currentTime = new Date();
-    const uploadDateTime = currentTime.getTime() - uploadTime.getTime();
-    let second = Math.floor(uploadDateTime / 1000);
-    let minutes = Math.floor(second / 60);
-    let hours = Math.floor(minutes / 60);
-    const day = Math.floor(hours / 24);
-    minutes = minutes - hours * 60
-    hours = hours - day * 24;
-    
     useEffect(() => {
         let newView = viewCount(address.views);
+        setView(newView);
+        const uploadTimestr = address.publish_date;
+        // const uploadTimestr=address.address.publish_date;
+        // const uploadTimestr = "2025-12-06T15:52:09.000Z"
+        const uploadTime = new Date(uploadTimestr);
+        const currentTime = new Date();
+        const uploadDateTime = currentTime.getTime() - uploadTime.getTime();
+        console.log(uploadDateTime+address.title)
+        let second = Math.floor(uploadDateTime / 1000);
+        let minutes = Math.floor(second / 60);
+        let hours = Math.floor(minutes / 60);
+        const day = Math.floor(hours / 24);
+        minutes = minutes - hours * 60
+        hours = hours - day * 24;
         setView(newView);
         bgurlset()
         if (day) {
@@ -75,21 +76,41 @@ export default function Card({address,setresd}) {
         }
     }, []);
 
+    // useEffect(() => {
+        // let newView = viewCount(address.views);
+        // setView(newView);
+        // bgurlset()
+        // if (day) {
+        //     setTime(`${day} day ago`)
+        // }
+        // else {
+        //     if (hours) {
+        //         setTime(`${hours} hours ago`)
+        //     }
+        //     if (minutes) {
+        //         setTime(`${minutes} minutes ago`)
+        //     }
+        //     else {
+        //         setTime(`Now`)
+        //     }
+        // }
+    // }, []);
+
     const handleVideoLoad = () => {
         let newView = viewCount(view + 1)
         setView(newView);
-        let res = fetch(`${BASE_URL}/api/list/ins`, {
+        let res = fetch(`/api/list/ins`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(address)
         })
-        navigate(`/video`,{ state: { searchResults:address } });
+        navigate(`/video`, { state: { searchResults: address } });
     };
     return (<div className={styles.main}>
-        <div className={styles}style={{ position: "relative" }}>
-            <img  id="image" className={styles.image} src={`${BASE_URL}/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`} width={size} onClick={() => handleVideoLoad(address)} />
+        <div className={styles} style={{ position: "relative" }}>
+            <img id="image" className={styles.image} src={`/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`} width={size} onClick={() => handleVideoLoad(address)} />
             <span className={styles.float}>{address.duration}</span>
-            </div>
+        </div>
         <div className={styles.box}>
             <div className={styles.title}>{address.title}</div>
             <h4 className={styles.subTitle}>{view} views</h4>
