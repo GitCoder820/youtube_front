@@ -10,6 +10,10 @@
     align-content: center;
     justify-items: center;
 }
+.main{
+    display: flex;
+    /* flex-direction: row-reverse; */
+}
 .error{
     color:white
 }
@@ -42,40 +46,27 @@
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
-    .explorer {
-        justify-content: center;
-        z-index: 10;
-        padding-left: 25px;
-        padding-bottom: 10px;
-        position: absolute;
+    .explorer{
+        height: 50px;
+        background-color: rgb(37, 38, 38);
+        position: sticky;
         bottom: 0px;
-        display: inline-block;
-        width: calc(100vw - 30px);
-        background-color: black;
-        display: flex;
-        height: auto;
-        align-items: center;
+        z-index: 10;
+        width: 100%;
+    }
+    .center {
+    height: calc(100vh - 110px);
+    }
 
-        >ul {
-            align-items: center;
-            margin-right: 15px;
-            display: flex;
-            justify-content: space-between;
-            width: calc(100vw);
-            height: auto;
+    .main {
+        display: grid;
+        height: calc(100vh - 60px);
+    }
 
-            >li {
-                height: 32px;
-
-                >a {
-                    height: auto;
-
-                    >div {
-                        border-bottom: transparent;
-                    }
-                }
-            }
-        }
+    .nav{
+        position: sticky;
+        top: 0px;
+        z-index: 10;
     }
 
     .form{

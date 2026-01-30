@@ -100,8 +100,9 @@ export default function Upload() {
 
     }
     return (<>
-        <nav><Navbar /></nav>
-        <div className={styles.explorer}><Explorer /></div>
+        <nav className={styles.nav}><Navbar /></nav>
+        <div className={styles.main}>
+        
         <div className={styles.center}>
 
             <form className={styles.form} encType="multipart/form-data" onSubmit={handleSubmit((data, e) => {
@@ -131,6 +132,9 @@ export default function Upload() {
                 <input id="submit" className={styles.submit} type="Submit" />
                 <input className={styles.submit} type="Reset" />
             </form>
-        </div></>
+        </div>
+        <div className={styles.explorer}><Explorer /></div>
+        </div>
+        </>
     )
 }

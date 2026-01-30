@@ -66,8 +66,9 @@ export default function Signup() {
         }
     }
     return (<>
-        <nav><Navbar /></nav>
-        <div className={styles.explorer}><Explorer /></div>
+        <nav className={styles.nav}><Navbar /></nav>
+        <div className={styles.main}>
+        
         <div className={styles.center}>
             {otpSend == 0 && (
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -109,6 +110,9 @@ export default function Signup() {
                     <div className={styles.error}>{otpMessage}</div>
                 </form>
             )}
-        </div></>
+        </div>
+        <div className={styles.explorer}><Explorer /></div>
+        </div>
+        </>
     )
 }

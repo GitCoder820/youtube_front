@@ -35,10 +35,10 @@ export default function Login() {
         }
     }
     return (<>
-        <nav><Navbar /></nav>
-        <div className={styles.explorer}><Explorer/></div>
+        <nav className={styles.nav}><Navbar /></nav>
+        <div className={styles.main}>
+        
         <div className={styles.center}>
-            
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <h2 className={styles.login}>Login {response && <h3><br />{response}</h3>}</h2>
                 <div className={styles.fields}>
@@ -49,6 +49,9 @@ export default function Login() {
                 </div>
                 <input className={styles.submit} type="Submit" />
             </form>
-        </div></>
+        </div>
+        <div className={styles.explorer}><Explorer/></div>
+        </div>
+        </>
     )
 }

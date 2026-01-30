@@ -75,8 +75,7 @@ export default function Video({viddata}) {
     }
   },[])
   return (<>
-    <nav><Navbar /></nav>
-    <div className={styles.explorer}><Explorer /></div>
+    <nav className={styles.nav}><Navbar /></nav>
     <div className={styles.white}>
       <div className={styles.content}>
         <div className={styles.video_tag}>
@@ -104,8 +103,10 @@ export default function Video({viddata}) {
         <div className={styles.sidebar} >
           <VideoHome setresd={setresd}/>
         </div>
-      </div> 
+      </div>
+      <div className={styles.explorer}><Explorer /></div>
     </div>
+    
     </>
   )
 }

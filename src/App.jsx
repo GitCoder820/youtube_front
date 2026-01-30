@@ -11,11 +11,11 @@ function App() {
   const [appv,setappv]=useState();
   return (
     < div className={styles.app}>
-        <nav><Navbar /></nav>
+        <nav className={styles.nav}><Navbar /></nav>
         <div className={styles.main}>
-          <div className={styles.explorer}><Explorer /></div>
+          
           <div className={styles.content}><Home setappv={setappv}/></div>
-          {/* <div style={{display:'none'}}><Video viddata={appv} /></div> */}
+          <div className={styles.explorer}><Explorer /></div>
         </div>
     </div>
   )

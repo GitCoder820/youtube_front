@@ -1,7 +1,12 @@
 .main {
     display: flex;
+    flex-direction: row-reverse;
     gap: 20px;
     background-color: rgb(10, 10, 10);
+    width: 100vw;
+    /* object-fit: contain; */
+    /* overflow: hidden; */
+    height: auto;
 }
 
 .content {
@@ -21,49 +26,22 @@
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
-    .content {
-        height: 70vh;
-    }
-
-    .explorer {
-        justify-content: center;
-        z-index: 10;
-        padding-left: 25px;
-        padding-bottom: 10px;
-        position: absolute;
+    .explorer{
+        height: 50px;
+        background-color: rgb(37, 38, 38);
+        position: sticky;
         bottom: 0px;
-        display: inline-block;
-        width: calc(100vw - 30px);
-        background-color: black;
-        display: flex;
-        height: auto;
-        align-items: center;
-
-        >ul {
-            align-items: center;
-            margin-right: 15px;
-            display: flex;
-            justify-content: space-between;
-            width: calc(100vw);
-            height: auto;
-
-            >li {
-                height: 32px;
-
-                >a {
-                    height: auto;
-
-                    >div {
-                        border-bottom: transparent;
-                    }
-                }
-            }
-        }
+        z-index: 10;
+        width: 100%;
     }
-
-    .main {
-        display: block;
-        height: calc(100vh - 60px);
+    .main{
+        gap:0px;
+        display: grid;
+    }
+    .nav{
+        position: sticky;
+        top: 0px;
+        z-index: 10;
     }
 
 }
