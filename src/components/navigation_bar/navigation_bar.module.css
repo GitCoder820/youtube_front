@@ -10,7 +10,7 @@
 }
 
 .icons {
-    width: 200px;
+    width: 240px;
     justify-content: center;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
 
 .svg {
     height: 32px;
-    width: 32px;
+    /* width: 32px; */
 }
 
 .youtubelogo {
@@ -136,9 +136,9 @@
         height: 100%;
     }
 
-    .flex img {
+    /* .flex img {
         width: 24px;
-    }
+    } */
 
     .btn {
         width: 28px;
@@ -152,4 +152,8 @@
     .signup {
         padding: 5px;
     }
+    .svg {
+    width: 60px;
+}
+    
 }

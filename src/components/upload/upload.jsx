@@ -16,9 +16,33 @@ export default function Upload() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [user, setUser] = useState("");
     const [alert_style, setalert] = useState("none");
+
+    function getVideoDuration(file) {
+        return new Promise((resolve, reject) => {
+            const video = document.createElement("video");
+            video.preload = "metadata";
+
+            video.onloadedmetadata = () => {
+                resolve(video.duration); // seconds
+                URL.revokeObjectURL(video.src);
+            };
+
+            video.onerror = () => {
+                reject("Failed to load video metadata");
+            };
+
+            video.src = URL.createObjectURL(file);
+        });
+    }
+
     const upload = async (data) => {
         const formData = new FormData();
         formData.append("Title", data.Title);
+        console.log(data.Video[0])
+        const file = data.Video[0];
+        const duration = await getVideoDuration(file);
+        console.log(duration)
+        formData.append("Duration", duration);
         try {
             let check = await fetch(`/api/list/check`, {
                 method: "POST",
@@ -102,39 +126,38 @@ export default function Upload() {
     return (<>
         <nav className={styles.nav}><Navbar /></nav>
         <div className={styles.main}>
-        
-        <div className={styles.center}>
 
-            <form className={styles.form} encType="multipart/form-data" onSubmit={handleSubmit((data, e) => {
-                upload(data);
-                form_status(data);
-                // stoper();
-            })}>
-                <h2 className={styles.login}>Upload Page </h2>
-                <h4 style={{ color: "red", display: alert_style }}>{user}</h4>
-                <div>
-                    <input className={styles.wrapper} type="text" placeholder="Enter your Video Title"  {...register("Title", { required: "This field is required", minLength: { value: 3, message: "enter your correct Name" } })} />
-                    {errors.Title && <div className={styles.error}>{errors.Title.message}</div>}
-                </div>
-                <div className={styles.files_data}>
-                    <label className={styles.label} htmlFor="thumbnail">Select Thumbnail</label>
-                    <input id="thumbnail" className={styles.file_upload} type="file" accept="image/*" name="Thumbnail" placeholder="Enter your Thumbnail"  {...register("Thumbnail", { required: "This field is required", onChange: (e) => { handleFileChange(e); } })} />
-                    {errors.Thumbnail && <div className={styles.error}>{errors.Thumbnail.message}</div>}
-                </div>
-                <div className={styles.files_data}>
+            <div className={styles.center}>
 
-                    <label className={styles.label} htmlFor="video">Select Video</label>
-                    <input id="video" className={styles.file_upload} type="file" accept="video/*" name="Video" placeholder="Enter your Video" {...register("Video", { required: "This field is required", onChange: (e) => { handleFileChange(e); } })} />
-                    {errors.Video && <div className={styles.error}>{errors.Video.message}
+                <form className={styles.form} encType="multipart/form-data" onSubmit={handleSubmit((data, e) => {
+                    upload(data);
+                    form_status(data);
+                })}>
+                    <h2 className={styles.login}>Upload Page </h2>
+                    <h4 style={{ color: "red", display: alert_style }}>{user}</h4>
+                    <div>
+                        <input className={styles.wrapper} type="text" placeholder="Enter your Video Title"  {...register("Title", { required: "This field is required", minLength: { value: 3, message: "enter your correct Name" } })} />
+                        {errors.Title && <div className={styles.error}>{errors.Title.message}</div>}
+                    </div>
+                    <div className={styles.files_data}>
+                        <label className={styles.label} htmlFor="thumbnail">Select Thumbnail</label>
+                        <input id="thumbnail" className={styles.file_upload} type="file" accept="image/*" name="Thumbnail" placeholder="Enter your Thumbnail"  {...register("Thumbnail", { required: "This field is required", onChange: (e) => { handleFileChange(e); } })} />
+                        {errors.Thumbnail && <div className={styles.error}>{errors.Thumbnail.message}</div>}
+                    </div>
+                    <div className={styles.files_data}>
 
-                    </div>}
-                </div>
-                <input id="submit" className={styles.submit} type="Submit" />
-                <input className={styles.submit} type="Reset" />
-            </form>
+                        <label className={styles.label} htmlFor="video">Select Video</label>
+                        <input id="video" className={styles.file_upload} type="file" accept="video/*" name="Video" placeholder="Enter your Video" {...register("Video", { required: "This field is required", onChange: (e) => { handleFileChange(e); } })} />
+                        {errors.Video && <div className={styles.error}>{errors.Video.message}
+
+                        </div>}
+                    </div>
+                    <input id="submit" className={styles.submit} type="Submit" />
+                    <input className={styles.submit} type="Reset" />
+                </form>
+            </div>
+            <div className={styles.explorer}><Explorer /></div>
         </div>
-        <div className={styles.explorer}><Explorer /></div>
-        </div>
-        </>
+    </>
     )
 }

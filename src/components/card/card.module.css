@@ -11,7 +11,7 @@
 }
 
 .image {
-    height: 200px;
+    height: auto;
     width: calc((90vw - 80px) / 3);
     transition: all 0.2s ease-in-out 0s;
     border-radius: 20px;

@@ -1,6 +1,7 @@
 .main {
     display: flex;
     flex-direction: row-reverse;
+    justify-content: left;
     gap: 20px;
     background-color: rgb(10, 10, 10);
     width: 100vw;

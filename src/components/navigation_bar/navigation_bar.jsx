@@ -1,5 +1,6 @@
 import hamburger from "./asset/hamburger.svg";
 import youtubelogo from "./asset/youtube-logo.svg";
+import logo from "../../../logo.png"
 import sign_in from "./asset/sign_in.svg";
 import login from "./asset/login.svg";
 import search from "./asset/search.svg";
@@ -13,12 +14,17 @@ import { BASE_URL } from "../../../urls";
 import { useState } from "react";
 import { additems } from "./searchedlist";
 import { logged } from "../login/logged";
-function Navbar() {
+function Navbar({ lstatus=localStorage.getItem("login")}) {
     const navigate = useNavigate();
     const [status, setStatus] = useState("login");
+    // useEffect(() => {
+    //     if(logged){
+    //         setStatus(logged)
+    //     }
+    // }, []);
     useEffect(() => {
-        if(logged){
-            setStatus(logged)
+        if(!localStorage.getItem("login")){
+            localStorage.setItem("login","Login")
         }
     }, []);
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -43,8 +49,7 @@ function Navbar() {
     return (
         <div className={styles.flex}>
             <div className={styles.icons}>
-                <img src={hamburger} alt="menu" />
-                <div className={styles.youtubelogo}><img className={styles.svg} src={youtubelogo} alt="youtube logo" /> <p className={styles.hidden}>YOUTUBE<sup> IN</sup></p></div>
+                <div className={styles.youtubelogo}><img className={styles.svg} src={logo} alt="youtube logo" /> <p className={styles.hidden}>PIXELPLAY<sup> IN</sup></p></div>
 
             </div>
 
@@ -55,7 +60,7 @@ function Navbar() {
             </form>
             <div className={styles.container_login}>
                 <NavLink to="/login" className={styles.btn}><div className={styles.signup}>
-                    <img className={styles.sign_up_icons} src={login} alt="menu" /> <div className={styles.hidden}>{status}</div></div>
+                    <img className={styles.sign_up_icons} src={login} alt="menu" /> <div className={styles.hidden}>{lstatus}</div></div>
                 </NavLink>
                 <NavLink to="/signup" className={styles.btn}><div className={styles.signup}>
                     <img className={styles.sign_up_icons} src={sign_in} alt="menu" /> <div className={styles.hidden}>Sign In</div></div>

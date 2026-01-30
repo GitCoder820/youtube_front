@@ -22,11 +22,11 @@ export default function Searched() {
         <div className={styles.app}>
             <nav> <Navbar /></nav>
             <div className={styles.main}>
-                <div className={styles.explorer}><Explorer /></div>
                 <div className={styles.content}>{list.length>0 ? (list.map((value, index) => (
                     <Card address={value} />
                 ))):(<div style={{color:"white"}}>No search</div>)}
                 </div>   
+                <div className={styles.explorer}><Explorer /></div>
             </div>
         </div>
 

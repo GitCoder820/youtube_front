@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import styles from './comments.module.css'
 import CommentBox from "./commentstore";
+import send from "./send.png"
 export default function Comment(id) {
     const [comments, setComment] = useState([]);
     const [reload, setReload] = useState([0]);
@@ -85,8 +86,9 @@ export default function Comment(id) {
             </div>
             <div className={styles.input}>
                 <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                    <input className={styles.text} id="text" type="text" placeholder="Enter Comment" {...register("Comment")} />
-                    <button className={styles.button} type="submit"> submit</button>
+                    <input className={styles.text} id="text" autoComplete="off" type="text" placeholder="Enter Comment" {...register("Comment")} />
+                    <button className={styles.button} type="submit"><img className={styles.send} src={send}/></button>
+                    
                 </form>
             </div>
         </div>

@@ -8,6 +8,7 @@ import { BASE_URL } from "../../../urls";
 import { loggedstatus } from "./logged";
 export default function Login() {
     const [response, setResponse] = useState("")
+    const [lstatus, setLstatus] = useState("")
     const navigate = useNavigate();
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const onSubmit = async (data) => {
@@ -23,8 +24,9 @@ export default function Login() {
             console.log(r)
             setResponse(r.message)
             setTimeout(()=>{
-                localStorage.setItem("login", "logged");
+                localStorage.setItem("login", r.name);
                 loggedstatus(r.name)
+                setLstatus(r.name)
                 navigate("/home");
             },2000)
         }
@@ -35,7 +37,7 @@ export default function Login() {
         }
     }
     return (<>
-        <nav className={styles.nav}><Navbar /></nav>
+        <nav className={styles.nav}><Navbar lstatus={lstatus}/></nav>
         <div className={styles.main}>
         
         <div className={styles.center}>
