@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://practice-srj7.onrender.com/$1"
+      "destination": "https://youtube-backend-8o8a.onrender.com/$1"
     }
   ]
 }
