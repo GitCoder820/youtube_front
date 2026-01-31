@@ -15,6 +15,7 @@ export default function Video({viddata}) {
   const [resd,setresd]= useState();
   // const [vidData,setvidData]= useState();
   const [Video,setVideo]= useState("");
+  const [views,setView]= useState("");
   const [channel_name,setchannel_name]= useState("");
   const [title,settitle]= useState("");
   const [vidid,setid]= useState("");
@@ -59,9 +60,11 @@ export default function Video({viddata}) {
   useEffect(()=>{
     console.log("resd",resd)
     if (!resd) return;
+    console.log("resd",resd.Video)
     setVideo(resd.Video)
     settitle(resd.title)
-    setchannel_name(resd.channelName)
+    setchannel_name(resd.channel_name)
+    setView(resd.views)
     setid(resd._id)
   },[resd])
   useEffect(()=>{
@@ -70,7 +73,8 @@ export default function Video({viddata}) {
     let vid_data=location.state.searchResults;
     setVideo(vid_data.Video)
     settitle(vid_data.title)
-    setchannel_name(vid_data.channelName)
+    setchannel_name(vid_data.channel_name)
+    setView(vid_data.views)
     setid(vid_data._id)
     }
   },[])
@@ -90,8 +94,9 @@ export default function Video({viddata}) {
             <span className={styles.title}>{title}</span>
             <div className={styles.channelSubcribe}>
             <div>
+              <span className={styles.vidview}> {views}</span><br/>
               <span className={styles.channelName}>{channel_name}</span>
-              <span className={styles.channelSubscribe}></span>
+              <span className={styles.channelSubscribe}> 100</span>
             </div>
             <button className={styles.subscribe}>Subscribe</button>
             </div>

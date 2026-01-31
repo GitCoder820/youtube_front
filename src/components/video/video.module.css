@@ -99,6 +99,9 @@
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
+    .title{
+        font-size: 15px;
+    }
     .commnetBox{
     /* height: 80px; */
     /* overflow: hidden; */
@@ -113,7 +116,7 @@
     }
     .sidebar {
         /* height: 50vh; */
-        width: 80vw;
+        /* width: 80vw; */
         /* margin-bottom: 70px; */
         >span {
             >des{
@@ -165,5 +168,8 @@
     .video {
         width: 100vw;
         height: auto;
+    }
+    .channelSubcribe{
+        display: grid;
     }
 }
