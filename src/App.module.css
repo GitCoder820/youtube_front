@@ -44,5 +44,10 @@
         top: 0px;
         z-index: 10;
     }
+    .content{
+        box-sizing: border-box;
+        width: 100vw;
+        padding: 10px;
+    }
 
 }
