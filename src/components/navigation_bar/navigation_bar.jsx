@@ -14,6 +14,7 @@ import { BASE_URL } from "../../../urls";
 import { useState } from "react";
 import { additems } from "./searchedlist";
 import { logged } from "../login/logged";
+import Scene from "./scene";
 function Navbar({ lstatus=localStorage.getItem("login")}) {
     const navigate = useNavigate();
     const [status, setStatus] = useState("login");
@@ -48,7 +49,9 @@ function Navbar({ lstatus=localStorage.getItem("login")}) {
 
     return (
         <div className={styles.flex}>
+            
             <div className={styles.icons}>
+                
                 <div className={styles.youtubelogo}><img className={styles.svg} src={logo} alt="youtube logo" /> <p className={styles.hidden}>PIXELPLAY<sup> IN</sup></p></div>
 
             </div>
@@ -56,7 +59,7 @@ function Navbar({ lstatus=localStorage.getItem("login")}) {
 
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <input className={styles.input} type="text" placeholder="Search" {...register("Search")} />
-                <button className={styles.button} type="submit" disabled={loads}> <img src={search} alt="menu" /></button>
+                <button className={styles.button} type="submit" disabled={loads}> <Scene/></button>
             </form>
             <div className={styles.container_login}>
                 <NavLink to="/login" className={styles.btn}><div className={styles.signup}>
