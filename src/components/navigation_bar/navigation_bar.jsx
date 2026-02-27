@@ -59,7 +59,7 @@ function Navbar({ lstatus=localStorage.getItem("login")}) {
 
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <input className={styles.input} type="text" placeholder="Search" {...register("Search")} />
-                <button className={styles.button} type="submit" disabled={loads}> <Scene/></button>
+                <button className={styles.button} type="submit" disabled={loads}> <img src={search} alt="menu" /></button>
             </form>
             <div className={styles.container_login}>
                 <NavLink to="/login" className={styles.btn}><div className={styles.signup}>
