@@ -14,7 +14,7 @@ import { BASE_URL } from "../../../urls";
 import { useState } from "react";
 import { additems } from "./searchedlist";
 import { logged } from "../login/logged";
-import Scene from "./scene";
+// import Scene from "./scene";
 function Navbar({ lstatus=localStorage.getItem("login")}) {
     const navigate = useNavigate();
     const [status, setStatus] = useState("login");
