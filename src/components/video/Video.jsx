@@ -29,8 +29,9 @@ export default function Video({viddata}) {
 
   // window.addEventListener("popstate", handleBack);
   
-  addEventListener("keydown", (event) => {
-    
+addEventListener("keydown", (event) => {
+  console.log(event.key)
+    event.stopPropagation()
     let elem=document.getElementById("Videoplaytag");
     if(event.key=="F"||event.key=="f"){
       elem.requestFullscreen();
@@ -55,8 +56,7 @@ export default function Video({viddata}) {
     else if(event.key=="ArrowLeft"){
       elem.currentTime-=5;
     }
-
-  })
+})
   useEffect(()=>{
     console.log("resd",resd)
     if (!resd) return;

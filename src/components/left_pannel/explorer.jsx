@@ -16,38 +16,38 @@ export default function Explorer() {
       el.style.backgroundColor = "red";
     }
   }, []);
-    return (<>
+    return (<div className={styles.hero}>
         <ul className={styles.ul}>
             <li>
-                <NavLink to='/home' className={({ isActive }) =>isActive ? `${styles.activeLink}` : ""}><div className="styles.links">
+                <NavLink to='/home' className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`}><div className="styles.links">
                     <img className={styles.icons} src={home} alt="menu" /> <div className={styles.hidden}>Home</div>
                 </div></NavLink>
                 
             </li>
             <li>
-                <NavLink to='/trending' className={({ isActive }) =>isActive ? `${styles.activeLink}` : ""}><div className="styles.links">
+                <NavLink to='/trending' className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`}><div className="styles.links">
                     <img className={styles.icons} src={trending} alt="menu" /> <div className={styles.hidden}>Trending</div>
                 </div></NavLink>
                 
             </li>
             <li>
-                <NavLink to='/upload'  className={({ isActive }) =>isActive ? `${styles.activeLink}` : ""} ><div className="styles.links">
+                <NavLink to='/upload'  className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`} ><div className="styles.links">
                     <img style={{background:"black",borderRadius:"3.14rem"}} className={styles.icons} src={upload} alt="menu" /> <div className={styles.hidden}>Upload</div>
                 </div></NavLink>
                 
             </li>
             <li>
-                <NavLink to='/library' className={({ isActive }) =>isActive ? `${styles.activeLink}` : ""}><div className="styles.links">
+                <NavLink to='/library' className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`}><div className="styles.links">
                     <img style={{background:"black",borderRadius:"3.14rem"}} className={styles.icons} src={you} alt="menu" /> <div className={styles.hidden}>You</div>
                 </div></NavLink>
                 
             </li>
             <li>
-                <NavLink to='/history' className={({ isActive }) =>isActive ? `${styles.activeLink}` : ""}><div className="styles.links">
+                <NavLink to='/history' className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`}><div className="styles.links">
                     <img  className={styles.icons} src={like} alt="menu" /> <div className={styles.hidden}>Like</div>
                 </div></NavLink>
                 
             </li>
         </ul>
-    </>)
+    </div>)
 }

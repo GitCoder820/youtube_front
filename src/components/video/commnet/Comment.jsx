@@ -9,6 +9,7 @@ export default function Comment(id) {
     const [comments, setComment] = useState([]);
     const [reload, setReload] = useState([0]);
     const [datain, setData] = useState(true);
+    const[event,setEvent] = useState("")
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const onSubmit = async (data) => {
         data.id = id.id
@@ -24,15 +25,16 @@ export default function Comment(id) {
         res = await res.text()
         console.log(data)
         console.log(res)
-        setReload(reload+1)
+        setReload(reload + 1)
         setComment([])
         commentsfun()
         reset({ Comment: "" });
-        document.getElementById("text").addEventListener("keydown", (event) => {
+        document.getElementById("form").addEventListener("keydown", (event) => {
         event.stopPropagation();
+        setEvent("change")
         })
         console.log("added")
-        
+
     };
     async function commentsfun() {
         console.log(id)
@@ -60,35 +62,36 @@ export default function Comment(id) {
             console.log(id)
             setComment([])
             commentsfun()
-        } 
+        }
         document.getElementById("text").addEventListener("keydown", (event) => {
             event.stopPropagation();
         })
         setComment([])
     }, [id])
-    // useEffect(() => {
-    //     // setData(true)
-        
-    //     document.getElementById("text").addEventListener("keydown", (event) => {
-    //     event.stopPropagation();
-    // })
-    // }, []) 
+    try{
+        document.getElementById('form').addEventListener("keydown", (event) => {
+            console.log(event.key)
+            event.stopPropagation()
+        })
+    }
+    catch{
+        console.log("not found")
+    }
     return (
         <div className={styles.box} key={`${reload}-${id.id}`}>
             <div className={styles.container} key={`${reload}-${id.id}`}>
                 {Array.isArray(comments) &&
                     comments.map((value, index) => (
                         <CommentBox key={`${reload}-${id.id}`}
-                        data={value} />
+                            data={value} />
                     ))
                 }
-                
+
             </div>
             <div className={styles.input}>
-                <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                <form id="form" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <input className={styles.text} id="text" autoComplete="off" type="text" placeholder="Enter Comment" {...register("Comment")} />
-                    <button className={styles.button} type="submit"><img className={styles.send} src={send}/></button>
-                    
+                    <button className={styles.button} type="submit"><img className={styles.send} src={send} /></button>
                 </form>
             </div>
         </div>

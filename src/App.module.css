@@ -25,6 +25,9 @@
     margin: 0%;
     height: 100vh;
 }
+.explorer{
+    background-color: rgb(33,33,33);
+}
 
 @media (max-width: 900px) and (max-height: 900px) {
     .explorer{
