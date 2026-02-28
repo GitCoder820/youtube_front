@@ -92,6 +92,9 @@
 }
 
 @media (max-width: 900px) and (max-height: 900px) {
+    .hero{
+        width: 100vw;
+    }
     .hidden{
         display:none;
     }
