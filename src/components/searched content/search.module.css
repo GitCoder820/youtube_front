@@ -5,7 +5,9 @@
     gap: 20px;
     background-color: rgb(10, 10, 10);
 }
-
+.explorer {
+        background-color: #212121;
+}
 .content {
     position: sticky;
     padding: 10px;
@@ -25,7 +27,7 @@
 @media (max-width: 900px) and (max-height: 900px) {
     .explorer {
         height: 50px;
-        background-color: rgb(37, 38, 38);
+        background-color: #212121;
         position: sticky;
         bottom: 0px;
         z-index: 10;
