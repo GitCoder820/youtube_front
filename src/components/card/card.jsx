@@ -104,6 +104,11 @@ export default function Card({ address, setresd }) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(address)
         })
+        const list = [{...address,"time":0}];
+        localStorage.setItem("list", JSON.stringify(list));
+        localStorage.setItem("start", 0);
+        localStorage.setItem("end", 0);
+        localStorage.setItem("current", 0);
         navigate(`/video`, { state: { searchResults: address } });
     };
     return (<div className={styles.main}>

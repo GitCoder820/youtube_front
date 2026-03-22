@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 import Card from "../card/card";
 import styles from './search.module.css'
 import Explorer from "../left_pannel/explorer";
+import Scene from "./scene";
 export default function Searched() {
     const [list, setList] = useState([]);
     const location =useLocation();
@@ -20,11 +21,12 @@ export default function Searched() {
     }, [location.state]);
     return (
         <div className={styles.app}>
+            {/* <Scene/> */}
             <nav> <Navbar /></nav>
             <div className={styles.main}>
                 <div className={styles.content}>{list.length>0 ? (list.map((value, index) => (
                     <Card address={value} />
-                ))):(<div style={{color:"white"}}>No search</div>)}
+                ))):(<div style={{color:"white"}}><Scene/></div>)}
                 </div>   
                 <div className={styles.explorer}><Explorer /></div>
             </div>

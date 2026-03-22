@@ -9,75 +9,124 @@ import styles from "./video.module.css"
 import { BASE_URL } from "../../../urls";
 import { useLocation } from "react-router-dom";
 import Comment from "./commnet/Comment";
-export default function Video({viddata}) {
+export default function Video({ viddata }) {
   const navigate = useNavigate();
-  const location =useLocation();
-  const [resd,setresd]= useState();
+  const location = useLocation();
+  const [resd, setresd] = useState();
   // const [vidData,setvidData]= useState();
-  const [Video,setVideo]= useState("");
-  const [views,setView]= useState("");
-  const [channel_name,setchannel_name]= useState("");
-  const [title,settitle]= useState("");
-  const [vidid,setid]= useState("");
-  // const handleBack = () => {
-  //   setCount();
-  //   navigate("/home");
-  //   return () => {
-  //     window.removeEventListener("popstate", handleBack);
-  //   };
-  // };
+  const [Video, setVideo] = useState("");
+  const [views, setView] = useState("");
+  const [channel_name, setchannel_name] = useState("");
+  const [title, settitle] = useState("");
+  const [vidid, setid] = useState("");
 
-  // window.addEventListener("popstate", handleBack);
-  
-addEventListener("keydown", (event) => {
-  console.log(event.key)
-    event.stopPropagation()
-    let elem=document.getElementById("Videoplaytag");
-    if(event.key=="F"||event.key=="f"){
-      elem.requestFullscreen();
-    }
-    else if(event.key=="i"||event.key=="I"){
-      document.exitFullscreen();
-    }
-    else if(event.key=="k"||event.key=="K"){
-      elem.requestPictureInPicture();
-    }
-    else if(event.key==" "){
-      if(elem.paused){
-        elem.play();
-      }
-      else{
-        elem.pause();
-      }
-    }
-    else if(event.key=="ArrowRight"){
-      elem.currentTime+=5;
-    }
-    else if(event.key=="ArrowLeft"){
-      elem.currentTime-=5;
-    }
-})
-  useEffect(()=>{
-    console.log("resd",resd)
+  useEffect(() => {
+    console.log("resd", resd)
     if (!resd) return;
-    console.log("resd",resd.Video)
+    console.log("resd", resd.Video)
     setVideo(resd.Video)
     settitle(resd.title)
     setchannel_name(resd.channel_name)
     setView(resd.views)
     setid(resd._id)
-  },[resd])
-  useEffect(()=>{
-    console.log("reloaded")
-    if (!resd){
-    let vid_data=location.state.searchResults;
-    setVideo(vid_data.Video)
-    settitle(vid_data.title)
-    setchannel_name(vid_data.channel_name)
-    setView(vid_data.views)
-    setid(vid_data._id)
+
+    const elem = document.getElementById("Videoplaytag");
+
+    const stored = localStorage.getItem("list");
+    const list = stored ? JSON.parse(stored) : [];
+
+    const current = parseInt(localStorage.getItem("current"));
+
+    if (elem && list[current]?.time != null) {
+      elem.addEventListener("loadedmetadata", () => {
+        elem.currentTime = list[current].time;
+      });
     }
-  },[])
+  }, [resd])
+
+  useEffect(() => {
+    console.log("reloaded")
+    const stored = localStorage.getItem("list");
+    const list = stored ? JSON.parse(stored) : [];
+    const current = parseInt(localStorage.getItem("current"));
+    setresd(list[current]);
+    // if (!resd) {
+    //   let vid_data = location.state.searchResults;
+    //   setVideo(vid_data.Video)
+    //   settitle(vid_data.title)
+    //   setchannel_name(vid_data.channel_name)
+    //   setView(vid_data.views)
+    //   setid(vid_data._id)
+    // }
+
+    const videonav = (event) => {
+      console.log(event.key)
+      event.stopPropagation()
+      let elem = document.getElementById("Videoplaytag");
+      if (event.key == "F" || event.key == "f") {
+        elem.requestFullscreen();
+      }
+      else if (event.key == "i" || event.key == "I") {
+        document.exitFullscreen();
+      }
+      else if (event.key == "k" || event.key == "K") {
+        elem.requestPictureInPicture();
+      }
+      else if (event.key == " ") {
+        if (elem.paused) {
+          elem.play();
+        }
+        else {
+          elem.pause();
+        }
+      }
+      else if (event.key == "ArrowRight") {
+        elem.currentTime += 5;
+      }
+      else if (event.key == "ArrowLeft") {
+        elem.currentTime -= 5;
+      }
+      else if (event.key == "A" || event.key == "a") {
+        const stored = localStorage.getItem("list");
+        let list = stored ? JSON.parse(stored) : [];
+        const current = parseInt(localStorage.getItem("current"));
+        if (current > 0) {
+          list[current].time = elem.currentTime;
+          localStorage.setItem("list", JSON.stringify(list));
+          console.log(list)
+          setresd(list[current - 1]);
+          localStorage.setItem("current", current - 1);
+        }
+      }
+
+      else if (event.key == "d" || event.key == "D") {
+        const stored = localStorage.getItem("list");
+        const list = stored ? JSON.parse(stored) : [];
+        const current = parseInt(localStorage.getItem("current"));
+        const end = parseInt(localStorage.getItem("end"));
+        if (current < end) {
+          list[current].time = elem.currentTime;
+          localStorage.setItem("list", JSON.stringify(list));
+          setresd(list[current + 1]);
+          localStorage.setItem("current", current + 1);
+        }
+      }
+
+      else if (event.key == "Q" || event.key == "q") {
+        console.log(elem.currentTime);
+      }
+
+    }
+
+    addEventListener("keydown", videonav)
+
+    return () => {
+      removeEventListener("keydown", videonav)
+      console.log("Listener Removed");
+    };
+
+  }, [])
+
   return (<>
     <nav className={styles.nav}><Navbar /></nav>
     <div className={styles.white}>
@@ -93,25 +142,25 @@ addEventListener("keydown", (event) => {
           <div className={styles.vidcontent}>
             <span className={styles.title}>{title}</span>
             <div className={styles.channelSubcribe}>
-            <div>
-              <span className={styles.vidview}> {views}</span><br/>
-              <span className={styles.channelName}>{channel_name}</span>
-              <span className={styles.channelSubscribe}> 100</span>
-            </div>
-            <button className={styles.subscribe}>Subscribe</button>
+              <div>
+                <span className={styles.vidview}> {views}</span><br />
+                <span className={styles.channelName}>{channel_name}</span>
+                <span className={styles.channelSubscribe}> 100</span>
+              </div>
+              <button className={styles.subscribe}>Subscribe</button>
             </div>
           </div>
           <div className={styles.commnetBox}>
-            <Comment id={vidid} />  
-        </div>
+            <Comment id={vidid} />
+          </div>
         </div>
         <div className={styles.sidebar} >
-          <VideoHome setresd={setresd}/>
+          <VideoHome setresd={setresd} />
         </div>
       </div>
       <div className={styles.explorer}><Explorer /></div>
     </div>
-    
-    </>
+
+  </>
   )
 }

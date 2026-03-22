@@ -87,9 +87,16 @@ export default function VideoCard({address,setresd}) {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(address)
         })
-        // navigate(`/video`, { state: { searchResults: address.address } });
-        setresd(address);
-        // navigate(`/video`,{ state: { searchResults:address }});
+        setresd({...address,"time":0});
+        const current= parseInt(localStorage.getItem("current"));
+        const stored = localStorage.getItem("list");
+        let list = stored ? JSON.parse(stored) : [];
+        list=(current>=0?list.slice(0, current+1):list)
+        list.push({...address,"time":0})
+        localStorage.setItem("list", JSON.stringify(list));
+        
+        localStorage.setItem("current", current >= 0 ? current + 1 : 0);
+        localStorage.setItem("end", current >= 0 ? current + 1 : 0);
     };
     return (<div className={styles.main}>
         <div className={styles}style={{ position: "relative" }}>
