@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "http://localhost:3000/$1"
+      "destination": "https://youtube-backend-8o8a.onrender.com/$1"
     },
     {
       "source": "/(.*)",
