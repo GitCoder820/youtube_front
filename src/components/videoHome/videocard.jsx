@@ -17,7 +17,7 @@ export default function VideoCard({address,setresd}) {
     const [isLoaded, setIsLoaded] = useState(false);
     const [bgurl, seturl] = useState();
     async function bgurlset() {
-        let bg= await fetch(`/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`)
+        let bg= await fetch(`/api/download/thumbnail/${encodeURIComponent(address._id)}`)
         seturl(bg.url)
     }
     function viewCount(views) {
@@ -100,7 +100,7 @@ export default function VideoCard({address,setresd}) {
     };
     return (<div className={styles.main}>
         <div className={styles}style={{ position: "relative" }}>
-            <img  id="image" className={styles.image} src={`/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`} width={size} onClick={() => handleVideoLoad(address)} />
+            <img  id="image" className={styles.image} src={`/api/download/thumbnail/${encodeURIComponent(address._id)}`} width={size} onClick={() => handleVideoLoad(address)} />
             <span className={styles.float}>{address.duration}</span>
             </div>
         <div className={styles.box}>

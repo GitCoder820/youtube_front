@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
@@ -8,8 +8,10 @@ import Home from "../home/home";
 import styles from "./video.module.css"
 import { BASE_URL } from "../../../urls";
 import { useLocation } from "react-router-dom";
+import Hls from "hls.js";
 import Comment from "./commnet/Comment";
 export default function Video({ viddata }) {
+  const videoRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
   const [resd, setresd] = useState();
@@ -21,17 +23,23 @@ export default function Video({ viddata }) {
   const [vidid, setid] = useState("");
 
   useEffect(() => {
+    // let el = document.getElementById("Videoplaytag");
+    // const stord = localStorage.getItem("list");
+    // const lit = stord ? JSON.parse(stord) : [];
+    // const curent = parseInt(localStorage.getItem("current"));
+    // lit[curent].time = el.currentTime;
+    // localStorage.setItem("list", JSON.stringify(lit));
+
+    const video = videoRef.current;
     console.log("resd", resd)
     if (!resd) return;
-    console.log("resd", resd.Video)
-    setVideo(resd.Video)
     settitle(resd.title)
     setchannel_name(resd.channel_name)
     setView(resd.views)
     setid(resd._id)
 
+    //playtime update
     const elem = document.getElementById("Videoplaytag");
-
     const stored = localStorage.getItem("list");
     const list = stored ? JSON.parse(stored) : [];
 
@@ -40,8 +48,11 @@ export default function Video({ viddata }) {
     if (elem && list[current]?.time != null) {
       elem.addEventListener("loadedmetadata", () => {
         elem.currentTime = list[current].time;
+        console.log("go on tome")
       });
     }
+
+
   }, [resd])
 
   useEffect(() => {
@@ -133,8 +144,10 @@ export default function Video({ viddata }) {
       <div className={styles.content}>
         <div className={styles.video_tag}>
           <video id="Videoplaytag" className={styles.video}
-            src={`/api/download/${encodeURIComponent(Video)}`}
-            muted:false
+            src={`/api/stream/${encodeURIComponent(vidid)}`}
+            // preload="metadata"
+            type={`video/mp4`}
+            // muted="false"
             controls
             autoPlay
             controlsList="nodownload"

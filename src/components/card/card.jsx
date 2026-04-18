@@ -113,7 +113,7 @@ export default function Card({ address, setresd }) {
     };
     return (<div className={styles.main}>
         <div className={styles} style={{ position: "relative" }}>
-            <img id="image" className={styles.image} src={`/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`} width={size} onClick={() => handleVideoLoad(address)} />
+            <img id="image" className={styles.image} src={`/api/download/thumbnail/${encodeURIComponent(address._id)}`} width={size} onClick={() => handleVideoLoad(address)} />
             <span className={styles.float}>{address.duration}</span>
         </div>
         <div className={styles.box}>
