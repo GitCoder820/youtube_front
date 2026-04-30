@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 import VideoCard from "./videocard";
 export default function VideoHome({ setresd }) {
     const [list, setList] = useState([]);

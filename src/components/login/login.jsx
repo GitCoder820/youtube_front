@@ -4,7 +4,7 @@ import Navbar from "../navigation_bar/navigation_bar";
 import { useNavigate } from "react-router-dom"
 import Explorer from "../left_pannel/explorer";
 import { useForm } from "react-hook-form";
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 import { loggedstatus } from "./logged";
 export default function Login() {
     const [response, setResponse] = useState("")

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 // import count_Views from "./views"
 import styles from "./videocard.module.css"
 import { useNavigate } from "react-router-dom"
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 import ColorThief from "colorthief";
 import Video from "../video/Video";
 import Navbar from "../navigation_bar/navigation_bar";

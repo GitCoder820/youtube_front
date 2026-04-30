@@ -4,7 +4,7 @@ import styles from "./signup.module.css"
 import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
 import { useForm } from "react-hook-form";
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 export default function Signup() {
     const [user, setUser] = useState({});
     const [otpMessage, setOtpMessage] = useState("");

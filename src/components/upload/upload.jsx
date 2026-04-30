@@ -11,7 +11,7 @@ import Navbar from "../navigation_bar/navigation_bar";
 import Explorer from "../left_pannel/explorer";
 import styles from "./upload.module.css"
 import { set, useForm } from "react-hook-form";
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 export default function Upload() {
     const { register, handleSubmit, formState: { errors }, reset } = useForm()
     const [user, setUser] = useState("");

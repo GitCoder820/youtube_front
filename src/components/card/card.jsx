@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import count_Views from "./views"
 import styles from "./card.module.css"
 import { useNavigate } from "react-router-dom"
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 import { useEffect } from "react";
 export default function Card({ address, setresd }) {
 
@@ -15,7 +15,6 @@ export default function Card({ address, setresd }) {
     const [bgurl, seturl] = useState();
     async function bgurlset() {
         let bg = await fetch(`/api/download/thumbnail/${encodeURIComponent(address.thumbnail)}`)
-        seturl(bg.url)
     }
     function viewCount(views) {
         let view_set = views;
@@ -59,7 +58,6 @@ export default function Card({ address, setresd }) {
         minutes = minutes - hours * 60
         hours = hours - day * 24;
         setView(newView);
-        bgurlset()
         if (day) {
             setTime(`${day} day ago`)
         }

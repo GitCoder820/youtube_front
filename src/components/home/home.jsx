@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "../card/card";
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 export default function Home({ setappv }) {
     const [list, setList] = useState([]);
     const address = async () => {

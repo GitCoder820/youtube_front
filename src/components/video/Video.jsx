@@ -6,7 +6,7 @@ import Explorer from "../left_pannel/explorer";
 import VideoHome from "../videoHome/videohome";
 import Home from "../home/home";
 import styles from "./video.module.css"
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 import { useLocation } from "react-router-dom";
 import Hls from "hls.js";
 import Comment from "./commnet/Comment";

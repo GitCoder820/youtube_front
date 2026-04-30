@@ -10,7 +10,7 @@ import { Navigate, NavLink } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import React from "react";
 import styles from "./navigation_bar.module.css"
-import { BASE_URL } from "../../../urls";
+// import { BASE_URL } from "../../../urls";
 import { useState } from "react";
 import { additems } from "./searchedlist";
 import { logged } from "../login/logged";
