@@ -18,15 +18,14 @@ function App() {
     return <ServerWakeScreen onReady={() => setping(true)} />;
   }
   return (
-    < div className={styles.app}>
+    <div className={styles.app}>
       <nav className={styles.nav}><Navbar /></nav>
-      <div className={styles.main}>
-        <div className={styles.content}><Home setappv={setappv} /></div>
-        <div className={styles.explorer}><Explorer /></div>
-      </div>
+       <div className={styles.main}>
+          <div className={styles.content}><Home setappv={setappv}/></div>
+          <div className={styles.explorer}><Explorer /></div>
+        </div>
     </div>
   );
-
 }
 
 export default App;

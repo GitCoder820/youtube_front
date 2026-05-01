@@ -47,7 +47,7 @@
     background-color: rgb(33,33,33);
     display: grid;
     /* width: 10%; */
-    height: calc(100vh - 92px);
+    height: calc(100vh - 65px);
     justify-content: space-between;
     list-style: none;
     /* gap:30px; */
@@ -99,12 +99,12 @@
         display:none;
     }
     .ul {
-    /* margin-left: 5px; */
+    margin-left: 5px;
     background-color: rgb(37, 38, 38);
     /* display: grid; */
     display: flex;
     width: calc(100% - 10px);
-    height: 10px;
+    height: 60px;
     /* align-items: center; */
     align-content: center;
     list-style: none;
