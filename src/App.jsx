@@ -12,7 +12,7 @@ function App() {
   const [appv, setappv] = useState();
   const [serverReady, setServerReady] = useState(false);
   if (!serverReady) {
-    return <ServerWakeScreen onReady={() => setServerReady(true)} />;
+    return <ServerWakeScreen serverReady={serverReady} setServerReady={setServerReady} />;
   }
   return (
     <div className={styles.app}>

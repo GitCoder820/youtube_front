@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from "./ServerWakeScreen.module.css";
 
-export default function ServerWakeScreen({ onReady, apiPath = "/api" }) {
+export default function ServerWakeScreen({ serverReady, setServerReady }) {
   const [dots, setDots] = useState("");
   const [attempt, setAttempt] = useState(0);
   const [elapsed, setElapsed] = useState(0);
@@ -24,13 +24,16 @@ export default function ServerWakeScreen({ onReady, apiPath = "/api" }) {
 
     const run = async () => {
       try {
-        const res = await fetch(apiPath, { method: "GET" });
+        const res = await fetch(`/api/`, { method: "GET" });
         if (!cancelled && res.ok) {
-          setStatus("ready");
-          setTimeout(onReady, 600);
-          return;
+          const text = await res.text();
+          if (text === "namaste") {
+            setStatus("ready");
+            setTimeout(() => setServerReady(true), 600);
+            return;
+          }
         }
-      } catch {}
+      } catch { }
       if (!cancelled) {
         setStatus("retrying");
         setAttempt((a) => a + 1);
@@ -44,7 +47,7 @@ export default function ServerWakeScreen({ onReady, apiPath = "/api" }) {
       cancelled = true;
       if (retryTimeout) clearTimeout(retryTimeout);
     };
-  }, [apiPath, onReady]);
+  }, []);
 
   const formatTime = (s) => {
     if (s < 60) return `${s}s`;
