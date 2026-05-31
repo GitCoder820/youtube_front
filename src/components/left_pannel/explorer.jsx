@@ -24,30 +24,30 @@ export default function Explorer() {
                 </div></NavLink>
                 
             </li>
-            <li>
+            {/* <li>
                 <NavLink to='/trending' className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`}><div className="styles.links">
                     <img className={styles.icons} src={trending} alt="menu" /> <div className={styles.hidden}>Trending</div>
                 </div></NavLink>
                 
-            </li>
+            </li> */}
             <li>
                 <NavLink to='/upload'  className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`} ><div className="styles.links">
                     <img style={{background:"black",borderRadius:"3.14rem"}} className={styles.icons} src={upload} alt="menu" /> <div className={styles.hidden}>Upload</div>
                 </div></NavLink>
                 
             </li>
-            <li>
+            {/* <li>
                 <NavLink to='/library' className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`}><div className="styles.links">
                     <img style={{background:"black",borderRadius:"3.14rem"}} className={styles.icons} src={you} alt="menu" /> <div className={styles.hidden}>You</div>
                 </div></NavLink>
                 
-            </li>
-            <li>
+            </li> */}
+            {/* <li>
                 <NavLink to='/history' className={({ isActive }) =>isActive ? `${styles.activeLink}` : `${styles.links}`}><div className="styles.links">
                     <img  className={styles.icons} src={like} alt="menu" /> <div className={styles.hidden}>Like</div>
                 </div></NavLink>
                 
-            </li>
+            </li> */}
         </ul>
     </div>)
 }

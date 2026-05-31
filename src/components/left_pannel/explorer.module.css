@@ -105,6 +105,7 @@
     display: flex;
     width: calc(100% - 10px);
     height: 60px;
+    justify-content: space-around;
     /* align-items: center; */
     align-content: center;
     list-style: none;
