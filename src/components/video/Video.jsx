@@ -23,12 +23,6 @@ export default function Video({ viddata }) {
   const [vidid, setid] = useState("");
 
   useEffect(() => {
-    // let el = document.getElementById("Videoplaytag");
-    // const stord = localStorage.getItem("list");
-    // const lit = stord ? JSON.parse(stord) : [];
-    // const curent = parseInt(localStorage.getItem("current"));
-    // lit[curent].time = el.currentTime;
-    // localStorage.setItem("list", JSON.stringify(lit));
 
     const video = videoRef.current;
     console.log("resd", resd)
@@ -61,14 +55,6 @@ export default function Video({ viddata }) {
     const list = stored ? JSON.parse(stored) : [];
     const current = parseInt(localStorage.getItem("current"));
     setresd(list[current]);
-    // if (!resd) {
-    //   let vid_data = location.state.searchResults;
-    //   setVideo(vid_data.Video)
-    //   settitle(vid_data.title)
-    //   setchannel_name(vid_data.channel_name)
-    //   setView(vid_data.views)
-    //   setid(vid_data._id)
-    // }
 
     const videonav = (event) => {
       console.log(event.key)
@@ -145,7 +131,6 @@ export default function Video({ viddata }) {
         <div className={styles.video_tag}>
           <video id="Videoplaytag" className={styles.video}
             src={`/api/stream/${encodeURIComponent(vidid)}`}
-            // preload="metadata"
             type={`video/mp4`}
             // muted="false"
             controls

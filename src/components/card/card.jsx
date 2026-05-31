@@ -7,7 +7,6 @@ import { useEffect } from "react";
 export default function Card({ address, setresd }) {
 
     const navigate = useNavigate();
-    // const colorThief = new ColorThief();
     const [size, setSize] = useState(300)
     const [view, setView] = useState();
     const [time, setTime] = useState();
@@ -74,25 +73,6 @@ export default function Card({ address, setresd }) {
         }
     }, []);
 
-    // useEffect(() => {
-        // let newView = viewCount(address.views);
-        // setView(newView);
-        // bgurlset()
-        // if (day) {
-        //     setTime(`${day} day ago`)
-        // }
-        // else {
-        //     if (hours) {
-        //         setTime(`${hours} hours ago`)
-        //     }
-        //     if (minutes) {
-        //         setTime(`${minutes} minutes ago`)
-        //     }
-        //     else {
-        //         setTime(`Now`)
-        //     }
-        // }
-    // }, []);
 
     const handleVideoLoad = () => {
         let newView = viewCount(view + 1)

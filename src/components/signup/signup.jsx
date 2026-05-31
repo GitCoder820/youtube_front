@@ -18,9 +18,9 @@ export default function Signup() {
             `/api/register/signup`,
             {
                 method: 'POST',
-                headers: { "Content-Type": "application/json" }, // note capitalization
+                headers: { "Content-Type": "application/json" }, 
                 body: JSON.stringify(data),
-                credentials: "include"   // ✅ must include this for cookies
+                credentials: "include"   // 
             }
         );
         console.log(r)
@@ -45,9 +45,9 @@ export default function Signup() {
             `/api/register/signupotp`,
             {
                 method: 'POST',
-                headers: { "Content-Type": "application/json" }, // note capitalization
+                headers: { "Content-Type": "application/json" }, 
                 body: JSON.stringify(formSubmit),
-                credentials: "include"   // ✅ must include this for cookies
+                credentials: "include"   
             }
         );
         console.log(r);
