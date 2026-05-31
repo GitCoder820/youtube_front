@@ -8,21 +8,15 @@ import Login from './components/login/login'
 import Explorer from './components/left_pannel/explorer'
 import Video from './components/video/Video'
 import ServerWakeScreen from './Wakeup'
+import { useNavigate } from 'react-router-dom'
 function App() {
+  const navigate = useNavigate();
   const [appv, setappv] = useState();
   const [serverReady, setServerReady] = useState(false);
   if (!serverReady) {
     return <ServerWakeScreen serverReady={serverReady} setServerReady={setServerReady} />;
   }
-  return (
-    <div className={styles.app}>
-      <nav className={styles.nav}><Navbar /></nav>
-       <div className={styles.main}>
-          <div className={styles.content}><Home setappv={setappv}/></div>
-          <div className={styles.explorer}><Explorer /></div>
-        </div>
-    </div>
-  );
+  navigate(`/Home`);
 }
 
 export default App;
